@@ -1,6 +1,5 @@
 
 import React from 'react';
-import { cn } from '@/lib/utils';
 import { MessageSquare, Brain, RefreshCw, FileText, Clock } from 'lucide-react';
 
 const WorkflowItem: React.FC<{
@@ -12,15 +11,26 @@ const WorkflowItem: React.FC<{
 }> = ({ icon, title, description, position, total }) => {
   // Calculate the position around the circle
   const angle = ((Math.PI * 2) / total) * position;
+  const radius = 150; // radius of the circle
+  
+  // Calculate the x and y coordinates
+  const x = Math.sin(angle) * radius;
+  const y = -Math.cos(angle) * radius;
   
   return (
-    <div className="circular-flow-item animate-fade-in relative">
-      <div className="absolute flex items-center justify-center">
-        <div className="bg-white p-4 rounded-full shadow-lg text-selflow-turquoise">
+    <div 
+      className="circular-flow-item absolute"
+      style={{ 
+        transform: `translate(${x}px, ${y}px)`,
+        transition: 'all 0.4s ease'
+      }}
+    >
+      <div className="flex flex-col items-center">
+        <div className="bg-white p-4 rounded-full shadow-lg text-selflow-green">
           {icon}
         </div>
-        <div className="absolute mt-20 w-48 text-center">
-          <h3 className="font-bold mb-1">{title}</h3>
+        <div className="mt-4 bg-white p-3 rounded-lg shadow-md w-48 text-center">
+          <h3 className="font-bold text-lg mb-1">{title}</h3>
           <p className="text-sm text-selflow-darkGray">{description}</p>
         </div>
       </div>
@@ -30,64 +40,58 @@ const WorkflowItem: React.FC<{
 
 const Workflow: React.FC = () => {
   return (
-    <section id="workflow" className="py-20">
+    <section id="workflow" className="py-28 bg-white">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-6">איך Selflow עובד?</h2>
-        <p className="text-xl text-center mb-16 max-w-3xl mx-auto">
-          פלטפורמה חכמה שמפשטת את תהליכי העבודה היומיומיים שלך
-        </p>
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">איך Selflow עובד?</h2>
+          <p className="text-xl max-w-3xl mx-auto">
+            מערכת חכמה שמפשטת את תהליכי העבודה היומיומיים ומאפשרת לך להתמקד בעיקר
+          </p>
+        </div>
         
-        <div className="relative my-20">
-          {/* Central Circle */}
-          <div className="relative mx-auto w-80 h-80 border-4 border-selflow-turquoise rounded-full flex items-center justify-center">
-            <div className="text-2xl font-bold text-selflow-darkGreen">Selflow</div>
-            
-            {/* Workflow Items */}
-            <div className="absolute -top-20 left-1/2 -translate-x-1/2">
+        <div className="relative h-[600px] animate-fade-in">
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+            {/* Central Circle */}
+            <div className="relative w-80 h-80 border-4 border-selflow-turquoise rounded-full flex items-center justify-center bg-gradient-to-br from-white to-selflow-lightGray">
+              <div className="text-2xl font-bold text-selflow-darkGreen animate-pulse">Selflow</div>
+              
+              {/* Workflow Items */}
               <WorkflowItem 
                 icon={<MessageSquare className="h-8 w-8" />}
                 title="קבלת הודעות"
-                description="הלקוחות שולחים הודעות דרך הערוצים המועדפים עליהם"
+                description="לקוחות שולחים הודעות דרך WhatsApp - הפלטפורמה המוכרת להם"
                 position={0}
                 total={5}
               />
-            </div>
-            
-            <div className="absolute top-1/4 -right-24">
+              
               <WorkflowItem 
                 icon={<Brain className="h-8 w-8" />}
                 title="ניתוח חכם"
-                description="המערכת מבינה את תוכן ההודעה ומסווגת אותה"
+                description="המערכת מבינה את תוכן ההודעה ומסווגת אותה לפי סוג הפנייה"
                 position={1}
                 total={5}
               />
-            </div>
-            
-            <div className="absolute bottom-0 right-0">
+              
               <WorkflowItem 
                 icon={<RefreshCw className="h-8 w-8" />}
-                title="עדכון אוטומטי"
-                description="הפעלת תהליכים אוטומטיים לפי תוכן ההודעה"
+                title="פעולה אוטומטית"
+                description="תיאום תורים, מענה לשאלות, ותזכורות ללקוחות - הכל באופן אוטומטי"
                 position={2}
                 total={5}
               />
-            </div>
-            
-            <div className="absolute bottom-0 left-0">
+              
               <WorkflowItem 
                 icon={<FileText className="h-8 w-8" />}
-                title="תיעוד ודוחות"
-                description="קבלת דוחות מפורטים וניתוחי מגמות"
+                title="דוחות ותובנות"
+                description="קבלת דוחות מפורטים על הפעילות, המאפשרים לך לקבל החלטות חכמות"
                 position={3}
                 total={5}
               />
-            </div>
-            
-            <div className="absolute top-1/4 -left-24">
+              
               <WorkflowItem 
                 icon={<Clock className="h-8 w-8" />}
                 title="חיסכון בזמן"
-                description="פחות עבודה ידנית, יותר זמן להתמקד בצמיחת העסק"
+                description="פחות עבודה ידנית, יותר זמן להתמקד בעיסוק המקצועי ובלקוחות"
                 position={4}
                 total={5}
               />
