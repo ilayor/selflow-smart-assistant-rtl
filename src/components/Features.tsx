@@ -35,7 +35,7 @@ const Features: React.FC = () => {
             <FeatureCard 
               icon={<Clock className="h-8 w-8 text-selflow-green" />}
               title="חיסכון בזמן יקר"
-              description="חסכו עד 20 שעות בשבוע בניהול הודעות, קביעת תורים וניהול לקוחות."
+              description="חסכו עד 20 שעות בשבוע על ניהול כספים מלאי ודוחות. הזמן הזה יקר, תשקיעו אותו בלקוחות שלכם."
               color="bg-selflow-yellow bg-opacity-40"
             />
           </div>
@@ -44,7 +44,7 @@ const Features: React.FC = () => {
             <FeatureCard 
               icon={<Calendar className="h-8 w-8 text-selflow-turquoise" />}
               title="ניהול יומן חכם"
-              description="תיאום תורים אוטומטי, תזכורות ללקוחות, והתראות על ביטולים - הכל באופן אוטומטי."
+              description="הודעה אחת וכל המידע על תזכורות ותורים מתעדכן ביומן שלכם."
               color="bg-selflow-purple bg-opacity-40"
             />
           </div>
@@ -53,7 +53,7 @@ const Features: React.FC = () => {
             <FeatureCard 
               icon={<Users className="h-8 w-8 text-selflow-green" />}
               title="הגדלת שביעות רצון"
-              description="שירות מהיר ואישי ללקוחות שלך, עם מענה מיידי לשאלות נפוצות בכל שעה."
+              description="עדכון מהיר של המידע בטבלאות ושליחת הודעת עדכון על כך על מנת שתדעו שהמידע שלכם במקום בטוח."
               color="bg-selflow-turquoise bg-opacity-20"
             />
           </div>

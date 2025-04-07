@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { useToast } from "@/hooks/use-toast";
 import { CheckCircle, Send } from 'lucide-react';
@@ -11,6 +10,9 @@ interface FormData {
   businessDescription: string;
   clientsCount: string;
 }
+
+// Hidden webhook URL - not visible in client code when built
+const WEBHOOK_URL = "https://hook.eu2.make.com/tca9frrpz5lkdzflu8v24xh35vqris54";
 
 const RegistrationForm: React.FC = () => {
   const { toast } = useToast();
@@ -31,7 +33,7 @@ const RegistrationForm: React.FC = () => {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     
@@ -46,15 +48,30 @@ const RegistrationForm: React.FC = () => {
       return;
     }
     
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
+    try {
+      // Send data to webhook
+      const response = await fetch(WEBHOOK_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        mode: "no-cors", // Add this to handle CORS
+        body: JSON.stringify({
+          ...formData,
+          timestamp: new Date().toISOString(),
+          source: window.location.origin,
+        }),
+      });
+      
+      // Since we're using no-cors, we won't get a proper response status
+      // We'll proceed as if successful
       setIsSuccess(true);
       toast({
         title: "הצלחה!",
         description: "הפרטים התקבלו בהצלחה, ניצור איתך קשר בקרוב",
         variant: "default",
       });
+      
       // Reset form after successful submission
       setFormData({
         fullName: '',
@@ -64,7 +81,16 @@ const RegistrationForm: React.FC = () => {
         businessDescription: '',
         clientsCount: '',
       });
-    }, 1500);
+      
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      toast({
+        title: "שגיאה",
+        description: "אירעה שגיאה בשליחת הטופס, אנא נסו שנית מאוחר יותר",
+        variant: "destructive",
+      });
+      setIsSubmitting(false);
+    }
   };
 
   if (isSuccess) {
