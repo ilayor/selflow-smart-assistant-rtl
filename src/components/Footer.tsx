@@ -1,10 +1,7 @@
-
 import React from 'react';
 import { Heart, Instagram, Facebook, Mail, Phone } from 'lucide-react';
-
 const Footer: React.FC = () => {
-  return (
-    <footer className="bg-selflow-darkGray text-white py-12">
+  return <footer className="bg-selflow-darkGray text-white py-12">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-8 md:mb-0">
@@ -32,20 +29,16 @@ const Footer: React.FC = () => {
               <ul className="space-y-2">
                 <li className="flex items-center">
                   <Mail className="h-5 w-5 ml-2 text-selflow-turquoise" />
-                  <a href="mailto:info@selflow.co.il" className="hover:text-selflow-turquoise transition-colors">info@selflow.co.il</a>
+                  <a href="mailto:info@selflow.co.il" className="hover:text-selflow-turquoise transition-colors">prosailorsys@gmail.com</a>
                 </li>
                 <li className="flex items-center">
                   <Phone className="h-5 w-5 ml-2 text-selflow-turquoise" />
-                  <a href="tel:0501234567" className="hover:text-selflow-turquoise transition-colors">050-1234567</a>
+                  <a href="tel:0501234567" className="hover:text-selflow-turquoise transition-colors">0556629293</a>
                 </li>
               </ul>
               <div className="flex space-x-4 mt-3">
-                <a href="#" className="bg-white p-2 rounded-full text-selflow-darkGray hover:bg-selflow-green hover:text-white transition-colors">
-                  <Instagram className="h-5 w-5" />
-                </a>
-                <a href="#" className="bg-white p-2 rounded-full text-selflow-darkGray hover:bg-selflow-green hover:text-white transition-colors">
-                  <Facebook className="h-5 w-5" />
-                </a>
+                
+                
               </div>
             </div>
           </div>
@@ -55,8 +48,6 @@ const Footer: React.FC = () => {
           <p>&copy; {new Date().getFullYear()} Selflow - כל הזכויות שמורות</p>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 };
-
 export default Footer;
