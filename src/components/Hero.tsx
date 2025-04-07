@@ -1,6 +1,11 @@
+
 import React from 'react';
 import { ArrowLeft, Phone, MessageSquare } from 'lucide-react';
+import { useIsMobile } from '@/hooks/use-mobile';
+
 const Hero: React.FC = () => {
+  const isMobile = useIsMobile();
+  
   return <section className="gradient-bg min-h-screen flex items-center pt-24 pb-16 relative">
       {/* Floating bubbles */}
       <div className="bubble bubble-1"></div>
@@ -33,7 +38,8 @@ const Hero: React.FC = () => {
           </div>
           <div className="md:w-1/2 mt-12 md:mt-0">
             <div className="relative">
-              <div className="absolute -top-10 -left-10 animate-float">
+              {/* Customer bubble - adjusted position for better visibility on both mobile and desktop */}
+              <div className={`absolute ${isMobile ? '-top-16 right-0' : '-top-10 -left-10'} z-10 animate-float`}>
                 <div className="bg-white rounded-2xl shadow-lg p-4 max-w-[200px]">
                   <div className="flex items-center mb-2">
                     <MessageSquare className="h-5 w-5 text-selflow-green mr-2" />
@@ -42,7 +48,9 @@ const Hero: React.FC = () => {
                   <p className="text-sm">אפשר לקבוע תור למניקור ליום שלישי?</p>
                 </div>
               </div>
-              <div className="absolute -bottom-6 -right-6 animate-float-reverse z-10">
+              
+              {/* Selflow bubble - adjusted position for better visibility on both mobile and desktop */}
+              <div className={`absolute ${isMobile ? '-bottom-16 left-0' : '-bottom-6 -right-6'} z-10 animate-float-reverse`}>
                 <div className="bg-selflow-yellow rounded-2xl shadow-lg p-4 max-w-[220px]">
                   <div className="flex items-center mb-2">
                     <MessageSquare className="h-5 w-5 text-selflow-green mr-2" />
@@ -51,13 +59,20 @@ const Hero: React.FC = () => {
                   <p className="text-sm">בוודאי! יש לנו מקום ביום שלישי ב-15:00 או 17:30. מה מתאים לך? הלקוחה בחרה בחמש תכתבי לי פה אני כבר אעדכן את זה ביומן שלך.</p>
                 </div>
               </div>
-              <img src="https://storage.googleapis.com/lovable-files/selflow-mockup.png" alt="Selflow WhatsApp Assistant" className="w-full h-auto rounded-2xl shadow-2xl z-0" onError={e => {
-              e.currentTarget.src = "https://via.placeholder.com/600x400?text=Selflow+WhatsApp+Assistant";
-            }} />
+              
+              <img 
+                src="https://storage.googleapis.com/lovable-files/selflow-mockup.png" 
+                alt="Selflow WhatsApp Assistant" 
+                className={`w-full h-auto rounded-2xl shadow-2xl z-0 ${isMobile ? 'mt-16 mb-16' : ''}`} 
+                onError={e => {
+                  e.currentTarget.src = "https://via.placeholder.com/600x400?text=Selflow+WhatsApp+Assistant";
+                }} 
+              />
             </div>
           </div>
         </div>
       </div>
     </section>;
 };
+
 export default Hero;

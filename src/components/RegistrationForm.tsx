@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { useToast } from "@/hooks/use-toast";
 import { CheckCircle, Send } from 'lucide-react';
@@ -49,6 +50,20 @@ const RegistrationForm: React.FC = () => {
     }
     
     try {
+      // Prepare structured JSON payload
+      const jsonPayload = {
+        full_name: formData.fullName,
+        age: formData.age,
+        phone: formData.phone,
+        email: formData.email,
+        business_description: formData.businessDescription,
+        clients: formData.clientsCount,
+        timestamp: new Date().toISOString(),
+        source: window.location.origin,
+      };
+      
+      console.log("Sending structured payload:", jsonPayload);
+      
       // Send data to webhook
       const response = await fetch(WEBHOOK_URL, {
         method: "POST",
@@ -56,15 +71,11 @@ const RegistrationForm: React.FC = () => {
           "Content-Type": "application/json",
         },
         mode: "no-cors", // Add this to handle CORS
-        body: JSON.stringify({
-          ...formData,
-          timestamp: new Date().toISOString(),
-          source: window.location.origin,
-        }),
+        body: JSON.stringify(jsonPayload),
       });
       
       // Since we're using no-cors, we won't get a proper response status
-      // We'll proceed as if successful
+      // Instead, we'll proceed as if successful
       setIsSuccess(true);
       toast({
         title: "הצלחה!",
