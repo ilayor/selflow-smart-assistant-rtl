@@ -78,8 +78,14 @@ const Features: React.FC = () => {
         </div>
         
         <div className="mt-16 text-center">
-          <p className="text-2xl font-bold text-selflow-darkGreen mb-8">״מאז שהתחלתי להשתמש ב-Selflow, העסק שלי מסודר, אני פחות לחוצה, והלקוחות מרוצים יותר!״</p>
-          <p className="text-lg">- מיכל, מעצבת ציפורניים, תל אביב</p>
+          <div className="max-w-4xl mx-auto">
+            <img 
+              src="/lovable-uploads/7581958b-339a-4fc3-8e1b-1bf07ea55575.png" 
+              alt="שיחת WhatsApp עם Selflow" 
+              className="rounded-lg shadow-xl mb-4 mx-auto" 
+            />
+            <p className="text-lg mt-4">שיחה יותר יעילה מזו לא תמצאו 😊</p>
+          </div>
         </div>
       </div>
     </section>

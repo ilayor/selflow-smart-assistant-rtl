@@ -75,7 +75,7 @@ const Workflow: React.FC = () => {
               <WorkflowItem 
                 icon={<RefreshCw className="h-8 w-8" />}
                 title="פעולה אוטומטית"
-                description="תיאום תורים, מענה לשאלות, ותזכורות ללקוחות - הכל באופן אוטומטי"
+                description="תיאום תורים, ניהול הכנסות הוצאות, הכנסת תזכורות ותורים ליומן וקבלת דוחות הכל באופן אוטומטי"
                 position={2}
                 total={5}
               />

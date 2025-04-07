@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Rocket, Clock, CheckCircle, Users } from 'lucide-react';
 const PilotInvitation: React.FC = () => {
@@ -65,7 +66,7 @@ const PilotInvitation: React.FC = () => {
             <div className="mt-8 p-4 bg-selflow-yellow bg-opacity-30 rounded-lg flex items-center">
               <Users className="h-6 w-6 text-selflow-darkGreen ml-3 flex-shrink-0" />
               <p className="text-lg">
-                <span className="font-bold">מספר המקומות מוגבל!</span> הפיילוט פתוח ל-20 עסקים בלבד. הקדימו להירשם להבטחת מקומכם.
+                <span className="font-bold">מספר המקומות מוגבל!</span> הפיילוט פתוח ל-4 עסקים בלבד. הקדימו להירשם להבטחת מקומכם.
               </p>
             </div>
           </div>
