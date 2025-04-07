@@ -6,7 +6,7 @@ const Footer: React.FC = () => {
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-8 md:mb-0">
             <div className="text-3xl font-bold text-selflow-turquoise mb-2">Selflow</div>
-            <p className="text-lg">העסק שלך, זורם בקלות</p>
+            <p className="text-lg">נבנה באהבה ע"י פרוסיילור סיסטמס, 2025</p>
             <div className="flex items-center mt-4">
               <Heart className="h-5 w-5 text-selflow-green mr-1" />
               <p>נבנה באהבה בישראל, 2025</p>
