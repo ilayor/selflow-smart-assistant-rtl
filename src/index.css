@@ -1,3 +1,6 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -95,7 +98,52 @@
     @apply border-border;
   }
 
+  html {
+    direction: rtl;
+    font-family: 'Assistant', sans-serif;
+  }
+
   body {
     @apply bg-background text-foreground;
+    font-family: 'Assistant', sans-serif;
   }
+}
+
+.gradient-bg {
+  background: linear-gradient(135deg, #00C2CB 0%, #ffffff 100%);
+}
+
+.feature-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 194, 203, 0.2);
+}
+
+.cta-button {
+  transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+}
+
+.circular-flow-item {
+  transition: all 0.3s ease;
+}
+
+.circular-flow-item:hover {
+  transform: scale(1.05);
+}
+
+.form-input {
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-input:focus {
+  border-color: #00C2CB;
+  box-shadow: 0 0 0 2px rgba(0, 194, 203, 0.2);
 }
