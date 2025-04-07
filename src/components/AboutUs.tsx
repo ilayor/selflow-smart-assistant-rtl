@@ -1,10 +1,7 @@
-
 import React from 'react';
 import { Users, Brain, Zap } from 'lucide-react';
-
 const AboutUs: React.FC = () => {
-  return (
-    <section id="about" className="py-20 bg-selflow-lightGray">
+  return <section id="about" className="py-20 bg-selflow-lightGray">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row items-center">
           <div className="md:w-1/3 mb-10 md:mb-0 flex justify-center">
@@ -25,9 +22,7 @@ const AboutUs: React.FC = () => {
             <p className="text-xl mb-6">
               אנחנו עילאי וסהר, יזמים צעירים בני 23, בעלי ניסיון משותף בעולם העסקים והטכנולוגיה.
             </p>
-            <p className="text-xl mb-6">
-              הקמנו את Selflow אחרי שראינו איך בעלי עסקים בתחום היופי מתמודדים עם אתגרים יומיומיים של ניהול לקוחות, תיאום תורים, ומענה להודעות.
-            </p>
+            <p className="text-xl mb-6">הקמנו את Selflow אחרי שראינו איך בעלי עסקים בתחום היופי מתמודדים עם אתגרים יומיומיים של ניהול לקוחות, תיאום תורים, ניהול הוצאות והכנסות, ניהול מלאי הפקת דוחות יומיים וחודשיים.</p>
             <p className="text-xl">
               הטכנולוגיה שפיתחנו משלבת בינה מלאכותית, אוטומציה וידע עסקי כדי לאפשר לכם להתמקד במה שבאמת חשוב - האמנות והמקצועיות שלכם, 
               בזמן ש-Selflow מטפל בכל השאר.
@@ -35,8 +30,6 @@ const AboutUs: React.FC = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default AboutUs;
