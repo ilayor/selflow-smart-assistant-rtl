@@ -13,7 +13,7 @@ const Hero: React.FC = () => {
       <div className="w-11/12 max-w-5xl mx-auto px-6 text-center">
         <div className="flex flex-col md:flex-row items-center">
           <div className="w-11/12 max-w-5xl mx-auto px-6 text-center">
-            <h1 className="text-4xl lg:text-6xl mb-6 text-selflow-darkGreen font-bold text-center md:text-5xl">             Selflow               הפשטות שבניהול עסק </h1>
+            <h1 className="text-4xl lg:text-6xl mb-6 text-selflow-darkGreen font-bold text-center md:text-5xl">             Selflow              הפשטות שבניהול עסק </h1>
             <p className="text-xl md:text-2xl mb-8 text-selflow-darkGray max-w-lg">העוזר החכם ב-WhatsApp שמנהל את העסק שלך באופן חכם, מסדר את המידע החשוב של העסק, ועוזר לך להתמקד במה שבאמת חשוב -        הלקוחות שלך.</p>
             <div className="flex flex-col sm:flex-row gap-4 mb-8">
               <a href="#pilot" className="cta-button inline-flex items-center justify-center bg-selflow-green hover:bg-selflow-darkGreen text-white font-medium py-3 px-8 rounded-full text-lg">
