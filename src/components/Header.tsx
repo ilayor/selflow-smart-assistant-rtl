@@ -5,10 +5,29 @@ import { Menu, X } from 'lucide-react';
 const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('');
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
+      
+      // Determine which section is currently in view
+      const sections = ['features', 'workflow', 'about', 'pilot'];
+      
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          const isInView = rect.top <= 200 && rect.bottom >= 200;
+          
+          if (isInView) {
+            setActiveSection(section);
+            break;
+          } else if (window.scrollY < 100) {
+            setActiveSection('');
+          }
+        }
+      }
     };
     
     window.addEventListener('scroll', handleScroll);
@@ -46,31 +65,37 @@ const Header: React.FC = () => {
           <nav className="hidden md:flex space-x-8 space-x-reverse">
             <a 
               href="#features" 
-              className={`hover:text-selflow-turquoise transition-colors ${
-                isScrolled ? 'text-selflow-darkGray' : 'text-selflow-darkGray'
+              className={`transition-all duration-300 ${
+                activeSection === 'features' 
+                  ? 'text-selflow-turquoise font-bold transform scale-105' 
+                  : isScrolled ? 'text-selflow-darkGray hover:text-selflow-turquoise' : 'text-selflow-darkGray hover:text-selflow-turquoise'
               }`}
             >
               היתרונות
             </a>
             <a 
               href="#workflow" 
-              className={`hover:text-selflow-turquoise transition-colors ${
-                isScrolled ? 'text-selflow-darkGray' : 'text-selflow-darkGray'
+              className={`transition-all duration-300 ${
+                activeSection === 'workflow' 
+                  ? 'text-selflow-turquoise font-bold transform scale-105' 
+                  : isScrolled ? 'text-selflow-darkGray hover:text-selflow-turquoise' : 'text-selflow-darkGray hover:text-selflow-turquoise'
               }`}
             >
               איך זה עובד
             </a>
             <a 
               href="#about" 
-              className={`hover:text-selflow-turquoise transition-colors ${
-                isScrolled ? 'text-selflow-darkGray' : 'text-selflow-darkGray'
+              className={`transition-all duration-300 ${
+                activeSection === 'about' 
+                  ? 'text-selflow-turquoise font-bold transform scale-105' 
+                  : isScrolled ? 'text-selflow-darkGray hover:text-selflow-turquoise' : 'text-selflow-darkGray hover:text-selflow-turquoise'
               }`}
             >
               מי אנחנו
             </a>
             <a 
               href="#pilot" 
-              className="bg-selflow-green hover:bg-selflow-darkGreen text-white px-4 py-2 rounded-full transition-colors"
+              className="bg-selflow-green hover:bg-selflow-darkGreen text-white px-4 py-2 rounded-full transition-colors animate-float-subtle"
             >
               הצטרפות לפיילוט
             </a>
@@ -83,21 +108,21 @@ const Header: React.FC = () => {
             <nav className="flex flex-col space-y-4 px-4">
               <a 
                 href="#features" 
-                className="text-selflow-darkGray hover:text-selflow-turquoise transition-colors py-2"
+                className={`py-2 ${activeSection === 'features' ? 'text-selflow-turquoise font-bold' : 'text-selflow-darkGray hover:text-selflow-turquoise'}`}
                 onClick={() => setIsMenuOpen(false)}
               >
                 היתרונות
               </a>
               <a 
                 href="#workflow" 
-                className="text-selflow-darkGray hover:text-selflow-turquoise transition-colors py-2"
+                className={`py-2 ${activeSection === 'workflow' ? 'text-selflow-turquoise font-bold' : 'text-selflow-darkGray hover:text-selflow-turquoise'}`}
                 onClick={() => setIsMenuOpen(false)}
               >
                 איך זה עובד
               </a>
               <a 
                 href="#about" 
-                className="text-selflow-darkGray hover:text-selflow-turquoise transition-colors py-2"
+                className={`py-2 ${activeSection === 'about' ? 'text-selflow-turquoise font-bold' : 'text-selflow-darkGray hover:text-selflow-turquoise'}`}
                 onClick={() => setIsMenuOpen(false)}
               >
                 מי אנחנו

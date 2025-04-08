@@ -4,10 +4,18 @@ import { Rocket, Clock, CheckCircle, Users } from 'lucide-react';
 
 const PilotInvitation: React.FC = () => {
   return (
-    <section id="pilot" className="py-20 gradient-bg">
-      <div className="container mx-auto px-4">
+    <section id="pilot" className="py-20 gradient-bg relative overflow-hidden">
+      {/* Background animation bubbles */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="bubble-bg bubble-1"></div>
+        <div className="bubble-bg bubble-2"></div>
+        <div className="bubble-bg bubble-3"></div>
+        <div className="bubble-bg bubble-4"></div>
+      </div>
+      
+      <div className="container mx-auto px-4 relative z-10">
         <div className="flex flex-col items-center text-center animate-fade-in">
-          <div className="relative">
+          <div className="relative animate-float-subtle">
             <Rocket className="h-16 w-16 text-selflow-darkGreen mb-2" />
             <div className="absolute -top-2 -right-2 bg-selflow-yellow rounded-full p-1">
               <Clock className="h-6 w-6 text-selflow-green" />
@@ -18,7 +26,7 @@ const PilotInvitation: React.FC = () => {
             אנו מזמינים אתכם להשתתף בפיילוט חינמי של 14 ימים, בו תוכלו להתנסות במערכת Selflow ולראות כיצד היא משנה את חווית ניהול העסק שלכם.
           </p>
           
-          <div className="bg-white rounded-2xl shadow-xl p-8 max-w-2xl w-full">
+          <div className="bg-white rounded-2xl shadow-xl p-8 max-w-2xl w-full transform transition-all duration-700 hover:shadow-2xl">
             <div className="flex flex-col md:flex-row gap-8">
               <div className="md:w-1/2">
                 <h3 className="text-2xl font-bold mb-4">מה כולל הפיילוט?</h3>
@@ -66,7 +74,7 @@ const PilotInvitation: React.FC = () => {
             </div>
             
             <div className="mt-8 p-4 bg-selflow-yellow bg-opacity-30 rounded-lg flex items-center">
-              <Users className="h-6 w-6 text-selflow-darkGreen ml-3 flex-shrink-0" />
+              <Users className="h-6 w-6 text-selflow-darkGreen ml-3 flex-shrink-0 animate-pulse" />
               <p className="text-lg">
                 <span className="font-bold">ההרשמה לפיילוט פתוחה לימים הקרובים בלבד!</span> הקדימו להירשם להבטחת מקומכם.
               </p>
