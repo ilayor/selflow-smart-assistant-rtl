@@ -110,7 +110,7 @@ const RegistrationForm: React.FC = () => {
               <CheckCircle className="h-16 w-16 text-selflow-green" />
             </div>
             <h2 className="text-4xl md:text-5xl font-bold mb-6 text-selflow-darkGreen">תודה על ההרשמה! 🎉</h2>
-            <p className="text-2xl mb-8">הפרטים שלך התקבלו בהצלחה. ניצור איתך קשר בקרוב כדי להתחיל את התהליך החכם שלך.</p>
+            <p className="text-2xl mb-8">הפרטים שלך התקבלו בהצלחה. נ��צור איתך קשר בקרוב כדי להתחיל את התהליך החכם שלך.</p>
             
             <div className="bg-white rounded-2xl shadow-lg p-8 mb-10">
               <p className="text-xl mb-4">
@@ -226,21 +226,17 @@ const RegistrationForm: React.FC = () => {
           
           <div className="mb-8">
             <label htmlFor="clientsCount" className="block text-lg font-medium mb-2">מספר לקוחות (בחודש) *</label>
-            <select
+            <input
+              type="number"
               id="clientsCount"
               name="clientsCount"
               value={formData.clientsCount}
               onChange={handleChange}
               className="form-input w-full p-3 border border-gray-300 rounded-lg focus:outline-none bg-gray-50 hover:bg-white transition-colors"
+              min="0"
+              placeholder="הזן מספר לקוחות חודשי"
               required
-            >
-              <option value="" disabled>בחר/י...</option>
-              <option value="0-10">0-10 לקוחות</option>
-              <option value="11-30">11-30 לקוחות</option>
-              <option value="31-60">31-60 לקוחות</option>
-              <option value="61-100">61-100 לקוחות</option>
-              <option value="100+">יותר מ-100 לקוחות</option>
-            </select>
+            />
           </div>
           
           <button
