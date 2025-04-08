@@ -3,12 +3,12 @@ import { useToast } from "@/hooks/use-toast";
 import { CheckCircle, Send } from 'lucide-react';
 
 interface FormData {
-  fullName: string;
+  full_name: string;
   age: string;
   phone: string;
   email: string;
-  businessDescription: string;
-  clientsCount: string;
+  business_description: string;
+  clients: string;
 }
 
 // Hidden webhook URL - not visible in client code when built
@@ -17,12 +17,12 @@ const WEBHOOK_URL = "https://hook.eu2.make.com/tca9frrpz5lkdzflu8v24xh35vqris54"
 const RegistrationForm: React.FC = () => {
   const { toast } = useToast();
   const [formData, setFormData] = useState<FormData>({
-    fullName: '',
+    full_name: '',
     age: '',
     phone: '',
     email: '',
-    businessDescription: '',
-    clientsCount: '',
+    business_description: '',
+    clients: '',
   });
   
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -38,7 +38,7 @@ const RegistrationForm: React.FC = () => {
     setIsSubmitting(true);
     
     // Validate form
-    if (!formData.fullName || !formData.age || !formData.phone || !formData.email || !formData.businessDescription || !formData.clientsCount) {
+    if (!formData.full_name || !formData.age || !formData.phone || !formData.email || !formData.business_description || !formData.clients) {
       toast({
         title: "שגיאה",
         description: "יש למלא את כל השדות",
@@ -49,26 +49,16 @@ const RegistrationForm: React.FC = () => {
     }
     
     try {
-      // Create a properly structured JSON payload with individual fields
-      const jsonPayload = {
-        full_name: formData.fullName,
-        phone: formData.phone,
-        email: formData.email,
-        age: formData.age,
-        business_description: formData.businessDescription,
-        clients: formData.clientsCount
-      };
+      console.log("Sending structured JSON payload:", formData);
       
-      console.log("Sending structured JSON payload:", jsonPayload);
-      
-      // Send data to webhook
+      // Send data to webhook with proper content type
       const response = await fetch(WEBHOOK_URL, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         mode: "no-cors", // Add this to handle CORS
-        body: JSON.stringify(jsonPayload),
+        body: JSON.stringify(formData), // Send the formData object directly
       });
       
       // Since we're using no-cors, we won't get a proper response status
@@ -82,12 +72,12 @@ const RegistrationForm: React.FC = () => {
       
       // Reset form after successful submission
       setFormData({
-        fullName: '',
+        full_name: '',
         age: '',
         phone: '',
         email: '',
-        businessDescription: '',
-        clientsCount: '',
+        business_description: '',
+        clients: '',
       });
       
     } catch (error) {
@@ -110,7 +100,7 @@ const RegistrationForm: React.FC = () => {
               <CheckCircle className="h-16 w-16 text-selflow-green" />
             </div>
             <h2 className="text-4xl md:text-5xl font-bold mb-6 text-selflow-darkGreen">תודה על ההרשמה! 🎉</h2>
-            <p className="text-2xl mb-8">הפרטים שלך התקבלו בהצלחה. נ��צור איתך קשר בקרוב כדי להתחיל את התהליך החכם שלך.</p>
+            <p className="text-2xl mb-8">הפרטים שלך התקבלו בהצלחה. ניצור איתך קשר בקרוב כדי להתחיל את התהליך החכם שלך.</p>
             
             <div className="bg-white rounded-2xl shadow-lg p-8 mb-10">
               <p className="text-xl mb-4">
@@ -157,12 +147,12 @@ const RegistrationForm: React.FC = () => {
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-10">הרשמה לפיילוט</h2>
         <form onSubmit={handleSubmit} className="max-w-2xl mx-auto bg-white rounded-2xl shadow-xl p-8">
           <div className="mb-6">
-            <label htmlFor="fullName" className="block text-lg font-medium mb-2">שם מלא *</label>
+            <label htmlFor="full_name" className="block text-lg font-medium mb-2">שם מלא *</label>
             <input
               type="text"
-              id="fullName"
-              name="fullName"
-              value={formData.fullName}
+              id="full_name"
+              name="full_name"
+              value={formData.full_name}
               onChange={handleChange}
               className="form-input w-full p-3 border border-gray-300 rounded-lg focus:outline-none bg-gray-50 hover:bg-white transition-colors"
               required
@@ -211,11 +201,11 @@ const RegistrationForm: React.FC = () => {
           </div>
           
           <div className="mb-6">
-            <label htmlFor="businessDescription" className="block text-lg font-medium mb-2">תיאור העסק *</label>
+            <label htmlFor="business_description" className="block text-lg font-medium mb-2">תיאור העסק *</label>
             <textarea
-              id="businessDescription"
-              name="businessDescription"
-              value={formData.businessDescription}
+              id="business_description"
+              name="business_description"
+              value={formData.business_description}
               onChange={handleChange}
               className="form-input w-full p-3 border border-gray-300 rounded-lg focus:outline-none bg-gray-50 hover:bg-white transition-colors"
               rows={4}
@@ -225,12 +215,12 @@ const RegistrationForm: React.FC = () => {
           </div>
           
           <div className="mb-8">
-            <label htmlFor="clientsCount" className="block text-lg font-medium mb-2">מספר לקוחות (בחודש) *</label>
+            <label htmlFor="clients" className="block text-lg font-medium mb-2">מספר לקוחות (בחודש) *</label>
             <input
               type="number"
-              id="clientsCount"
-              name="clientsCount"
-              value={formData.clientsCount}
+              id="clients"
+              name="clients"
+              value={formData.clients}
               onChange={handleChange}
               className="form-input w-full p-3 border border-gray-300 rounded-lg focus:outline-none bg-gray-50 hover:bg-white transition-colors"
               min="0"
