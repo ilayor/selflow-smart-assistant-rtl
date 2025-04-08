@@ -41,20 +41,18 @@ const WorkflowItem: React.FC<{
   description: string;
   position: number;
   total: number;
-  isMobile: boolean;
 }> = ({
   icon,
   title,
   description,
   position,
-  total,
-  isMobile
+  total
 }) => {
   // Calculate the position around the circle
   const angle = Math.PI * 2 / total * position;
   
-  // Adjust radius based on screen size
-  const radius = isMobile ? 120 : 200; // Reduced radius for mobile
+  // Set radius for desktop
+  const radius = 200;
   
   // Calculate the x and y coordinates
   const x = Math.sin(angle) * radius;
@@ -67,8 +65,8 @@ const WorkflowItem: React.FC<{
   // Adjust specific positions for better display
   if (title === "פעולה אוטומטית" || title === "דוחות ותובנות") {
     // Make slight adjustments to position these items better
-    adjustedX = x * (isMobile ? 1.05 : 1.1);
-    adjustedY = y * (isMobile ? 1.05 : 1.1);
+    adjustedX = x * 1.1;
+    adjustedY = y * 1.1;
   }
   
   // Different animation delay based on position
@@ -137,8 +135,8 @@ const Workflow: React.FC = () => {
         </div>
         
         {isMobile ? (
-          // תצוגת מובייל - רשימה אנכית פשוטה
-          <div className="flex flex-col items-center animate-fade-in">
+          // תצוגת מובייל - רשימה אנכית פשוטה בלבד ללא המעגל
+          <div className="flex flex-col items-center py-4">
             {workflowItems.map((item, index) => (
               <MobileWorkflowItem
                 key={index}
@@ -166,7 +164,6 @@ const Workflow: React.FC = () => {
                     description={item.description}
                     position={index} 
                     total={workflowItems.length}
-                    isMobile={isMobile}
                   />
                 ))}
               </div>
