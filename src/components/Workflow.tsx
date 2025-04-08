@@ -87,9 +87,9 @@ const WorkflowItem: React.FC<{
         <div className="bg-white p-4 rounded-full shadow-lg text-selflow-green">
           {icon}
         </div>
-        <div className={`mt-4 bg-white p-3 rounded-lg shadow-md ${isMobile ? 'w-32' : 'w-48'} text-center`}>
-          <h3 className={`font-bold ${isMobile ? 'text-base' : 'text-lg'} mb-1`}>{title}</h3>
-          <p className={`${isMobile ? 'text-xs' : 'text-sm'} text-selflow-darkGray`}>{description}</p>
+        <div className="mt-4 bg-white p-3 rounded-lg shadow-md w-48 text-center">
+          <h3 className="font-bold text-lg mb-1">{title}</h3>
+          <p className="text-sm text-selflow-darkGray">{description}</p>
         </div>
       </div>
     </div>
@@ -136,9 +136,9 @@ const Workflow: React.FC = () => {
           <p className="text-lg md:text-xl max-w-3xl mx-auto">עוזר אישי חכם, מבוסס בינה מלאכותית, שמקבל ממך הוראות ולוקח את העסק שלך קדימה.</p>
         </div>
         
-        {/* תצוגת מובייל - רשימה אנכית */}
         {isMobile ? (
-          <div className="flex flex-col items-center animate-fade-in stagger-animation">
+          // תצוגת מובייל - רשימה אנכית פשוטה
+          <div className="flex flex-col items-center animate-fade-in">
             {workflowItems.map((item, index) => (
               <MobileWorkflowItem
                 key={index}
@@ -150,7 +150,7 @@ const Workflow: React.FC = () => {
             ))}
           </div>
         ) : (
-          /* תצוגת דסקטופ - מעגל */
+          // תצוגת דסקטופ - מעגל
           <div className="relative h-[700px] animate-fade-in">
             <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
               {/* Central Circle */}
