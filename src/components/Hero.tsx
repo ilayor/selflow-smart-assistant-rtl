@@ -1,11 +1,8 @@
-
 import React from 'react';
 import { ArrowLeft, Phone, MessageSquare } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
-
 const Hero: React.FC = () => {
   const isMobile = useIsMobile();
-  
   return <section className="gradient-bg min-h-screen flex items-center pt-24 pb-16 relative">
       {/* Floating bubbles */}
       <div className="bubble bubble-1"></div>
@@ -13,12 +10,11 @@ const Hero: React.FC = () => {
       <div className="bubble bubble-3"></div>
       <div className="bubble bubble-4"></div>
       
-      <div className="container mx-auto px-4">
+      <div className="w-11/12 max-w-5xl mx-auto px-6 text-center">
         <div className="flex flex-col md:flex-row items-center">
           <div className="md:w-1/2 md:pl-12 animate-slide-up">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-selflow-darkGreen">
-              Selflow – העסק שלך, זורם בקלות 🚀
-            </h1>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-selflow-darkGreen">Selflow 
+ הפשטות שבניהול עסק 🚀</h1>
             <p className="text-xl md:text-2xl mb-8 text-selflow-darkGray max-w-lg">
               העוזר החכם ב-WhatsApp שמנהל את העסק שלך באופן אוטומטי, מסדר את התורים וההודעות, ועוזר לך להתמקד במה שבאמת חשוב.
             </p>
@@ -39,8 +35,7 @@ const Hero: React.FC = () => {
           <div className="md:w-1/2 mt-12 md:mt-0">
             <div className="relative">
               {/* Repositioned chat bubbles for better visibility on mobile */}
-              {isMobile ? (
-                <>
+              {isMobile ? <>
                   {/* On mobile, position bubbles above and below the phone image with more space */}
                   <div className="absolute -top-36 right-10 z-10 animate-float">
                     <div className="bg-white rounded-2xl shadow-lg p-4 max-w-[200px]">
@@ -62,17 +57,10 @@ const Hero: React.FC = () => {
                     </div>
                   </div>
                   
-                  <img 
-                    src="https://storage.googleapis.com/lovable-files/selflow-mockup.png" 
-                    alt="Selflow WhatsApp Assistant" 
-                    className="w-full h-auto rounded-2xl shadow-2xl z-0 mt-32 mb-32" 
-                    onError={e => {
-                      e.currentTarget.src = "https://via.placeholder.com/600x400?text=Selflow+WhatsApp+Assistant";
-                    }} 
-                  />
-                </>
-              ) : (
-                <>
+                  <img src="https://storage.googleapis.com/lovable-files/selflow-mockup.png" alt="Selflow WhatsApp Assistant" className="w-full h-auto rounded-2xl shadow-2xl z-0 mt-32 mb-32" onError={e => {
+                e.currentTarget.src = "https://via.placeholder.com/600x400?text=Selflow+WhatsApp+Assistant";
+              }} />
+                </> : <>
                   {/* On desktop, keep original positioning */}
                   <div className="absolute -top-10 -left-10 z-10 animate-float">
                     <div className="bg-white rounded-2xl shadow-lg p-4 max-w-[200px]">
@@ -94,21 +82,14 @@ const Hero: React.FC = () => {
                     </div>
                   </div>
                   
-                  <img 
-                    src="https://storage.googleapis.com/lovable-files/selflow-mockup.png" 
-                    alt="Selflow WhatsApp Assistant" 
-                    className="w-full h-auto rounded-2xl shadow-2xl z-0" 
-                    onError={e => {
-                      e.currentTarget.src = "https://via.placeholder.com/600x400?text=Selflow+WhatsApp+Assistant";
-                    }} 
-                  />
-                </>
-              )}
+                  <img src="https://storage.googleapis.com/lovable-files/selflow-mockup.png" alt="Selflow WhatsApp Assistant" className="w-full h-auto rounded-2xl shadow-2xl z-0" onError={e => {
+                e.currentTarget.src = "https://via.placeholder.com/600x400?text=Selflow+WhatsApp+Assistant";
+              }} />
+                </>}
             </div>
           </div>
         </div>
       </div>
     </section>;
 };
-
 export default Hero;
