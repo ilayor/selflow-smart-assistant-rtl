@@ -33,7 +33,7 @@ const Footer: React.FC = () => {
                 </li>
                 <li className="flex items-center">
                   <Phone className="h-5 w-5 ml-2 text-selflow-turquoise" />
-                  <a href="tel:0501234567" className="hover:text-selflow-turquoise transition-colors">0556629293</a>
+                  <a href="tel:0501234567" className="hover:text-selflow-turquoise transition-colors">0556629293 - סהר </a>
                 </li>
               </ul>
               <div className="flex space-x-4 mt-3">
