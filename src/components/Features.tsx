@@ -83,26 +83,28 @@ const Features: React.FC = () => {
             <div className="aspect-w-16 aspect-h-9 mb-4">
               <img 
                 src="https://images.pexels.com/photos/3992874/pexels-photo-3992874.jpeg" 
-                alt="מספרה - קהל היעד" 
+                alt="ספר - קהל היעד" 
                 className="rounded-lg object-cover w-full h-64"
                 onError={e => {
                   e.currentTarget.src = "https://via.placeholder.com/600x400?text=Hair+Salon";
                 }} 
               />
             </div>
+            <h3 className="text-xl font-bold text-center">ספרים - קהל היעד</h3>
           </div>
           
           <div className="bg-white p-6 rounded-xl shadow-lg">
             <div className="aspect-w-16 aspect-h-9 mb-4">
               <img 
-                src="https://images.pexels.com/photos/7755552/pexels-photo-7755552.jpeg" 
-                alt="מכון לק ג'ל - קהל היעד" 
+                src="https://images.pexels.com/photos/939836/pexels-photo-939836.jpeg" 
+                alt="לק ג'ל - קהל היעד" 
                 className="rounded-lg object-cover w-full h-64"
                 onError={e => {
                   e.currentTarget.src = "https://via.placeholder.com/600x400?text=Nail+Salon";
                 }} 
               />
             </div>
+            <h3 className="text-xl font-bold text-center">לק ג'ל - קהל היעד</h3>
           </div>
         </div>
         

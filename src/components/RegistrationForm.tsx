@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { useToast } from "@/hooks/use-toast";
 import { CheckCircle, Send } from 'lucide-react';
@@ -49,16 +50,24 @@ const RegistrationForm: React.FC = () => {
     }
     
     try {
-      console.log("Sending structured JSON payload:", formData);
+      // Create URLSearchParams object for form-urlencoded format
+      const params = new URLSearchParams();
       
-      // Send data to webhook with proper content type
+      // Add each form field to params
+      Object.entries(formData).forEach(([key, value]) => {
+        params.append(key, value);
+      });
+      
+      console.log("Sending form-urlencoded payload:", params.toString());
+      
+      // Send data to webhook with form-urlencoded content type
       const response = await fetch(WEBHOOK_URL, {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
+          "Content-Type": "application/x-www-form-urlencoded",
         },
         mode: "no-cors", // Add this to handle CORS
-        body: JSON.stringify(formData), // Send the formData object directly
+        body: params.toString(), // Convert params to string
       });
       
       // Since we're using no-cors, we won't get a proper response status
