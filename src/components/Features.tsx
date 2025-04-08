@@ -77,6 +77,39 @@ const Features: React.FC = () => {
           </div>
         </div>
         
+        {/* Adding the two business people images */}
+        <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="bg-white p-6 rounded-xl shadow-lg">
+            <div className="aspect-w-16 aspect-h-9 mb-4">
+              <img 
+                src="https://images.pexels.com/photos/3760755/pexels-photo-3760755.jpeg" 
+                alt="בעל עסק - ספר עם לקוחה" 
+                className="rounded-lg object-cover w-full h-64"
+                onError={e => {
+                  e.currentTarget.src = "https://via.placeholder.com/600x400?text=Business+Owner+Example";
+                }} 
+              />
+            </div>
+            <h3 className="text-xl font-bold mb-2">יוסי, ספר בירושלים</h3>
+            <p className="text-gray-700">"מאז שהתחלתי להשתמש ב-Selflow, אני חוסך יותר מ-15 שעות בשבוע על ניהול תורים וגביית תשלומים. זה פשוט עובד!"</p>
+          </div>
+          
+          <div className="bg-white p-6 rounded-xl shadow-lg">
+            <div className="aspect-w-16 aspect-h-9 mb-4">
+              <img 
+                src="https://images.pexels.com/photos/3738362/pexels-photo-3738362.jpeg" 
+                alt="בעלת עסק - מכון לק ג'ל" 
+                className="rounded-lg object-cover w-full h-64"
+                onError={e => {
+                  e.currentTarget.src = "https://via.placeholder.com/600x400?text=Business+Owner+Example";
+                }} 
+              />
+            </div>
+            <h3 className="text-xl font-bold mb-2">מיכל, מכון לק ג'ל בתל אביב</h3>
+            <p className="text-gray-700">"המערכת עזרה לי להגדיל את הרווח ב-25% בזכות ניהול יעיל של המלאי והתזכורות האוטומטיות ללקוחות."</p>
+          </div>
+        </div>
+        
         <div className="mt-16 text-center">
           <div className="max-w-4xl mx-auto">
             <img 

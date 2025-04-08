@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { useToast } from "@/hooks/use-toast";
 import { CheckCircle, Send } from 'lucide-react';
@@ -50,19 +49,17 @@ const RegistrationForm: React.FC = () => {
     }
     
     try {
-      // Prepare structured JSON payload
+      // Create a properly structured JSON payload with individual fields
       const jsonPayload = {
         full_name: formData.fullName,
-        age: formData.age,
         phone: formData.phone,
         email: formData.email,
+        age: formData.age,
         business_description: formData.businessDescription,
-        clients: formData.clientsCount,
-        timestamp: new Date().toISOString(),
-        source: window.location.origin,
+        clients: formData.clientsCount
       };
       
-      console.log("Sending structured payload:", jsonPayload);
+      console.log("Sending structured JSON payload:", jsonPayload);
       
       // Send data to webhook
       const response = await fetch(WEBHOOK_URL, {
