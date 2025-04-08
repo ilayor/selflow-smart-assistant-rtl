@@ -1,10 +1,7 @@
-
 import React from 'react';
 import { Heart, Instagram, Facebook, Mail, Phone } from 'lucide-react';
-
 const Footer: React.FC = () => {
-  return (
-    <footer className="bg-selflow-darkGray text-white py-12">
+  return <footer className="bg-selflow-darkGray text-white py-12">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-8 md:mb-0">
@@ -36,7 +33,7 @@ const Footer: React.FC = () => {
                 </li>
                 <li className="flex items-center">
                   <Phone className="h-5 w-5 ml-2 text-selflow-turquoise" />
-                  <a href="tel:0501234567" className="hover:text-selflow-turquoise transition-colors">0556629293 - סהר </a>
+                  <a href="tel:0501234567" className="hover:text-selflow-turquoise transition-colors">0556629293 - סהר </a>
                 </li>
               </ul>
               <div className="flex space-x-4 mt-3">
@@ -49,11 +46,8 @@ const Footer: React.FC = () => {
         
         <div className="border-t border-gray-700 mt-10 pt-6 text-center">
           <p>&copy; {new Date().getFullYear()} Selflow - כל הזכויות שמורות</p>
-          <p className="mt-2 text-selflow-turquoise animate-fade-in">Selflow - ניהול חכם דרך WhatsApp ✨</p>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 };
-
 export default Footer;
