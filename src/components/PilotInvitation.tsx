@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Rocket, Clock, CheckCircle, Users } from 'lucide-react';
 const PilotInvitation: React.FC = () => {
@@ -31,7 +30,7 @@ const PilotInvitation: React.FC = () => {
                   </li>
                   <li className="flex items-center">
                     <CheckCircle className="ml-2 h-5 w-5 text-selflow-green" />
-                    <span>ניהול העסק לתקופה רק דרך וואטסאפ</span>
+                    <span>ניהול העסק דרך הודעות וואטסאפ</span>
                   </li>
                   <li className="flex items-center">
                     <CheckCircle className="ml-2 h-5 w-5 text-selflow-green" />
@@ -53,7 +52,7 @@ const PilotInvitation: React.FC = () => {
                   </li>
                   <li className="flex items-center">
                     <CheckCircle className="ml-2 h-5 w-5 text-selflow-green" />
-                    <span>שימוש ב-WhatsApp לתקשורת עם לקוחות</span>
+                    <span>שימוש בוואטסאפ לתקשורת עם לקוחות</span>
                   </li>
                   <li className="flex items-center">
                     <CheckCircle className="ml-2 h-5 w-5 text-selflow-green" />
