@@ -20,9 +20,7 @@ const Hero: React.FC = () => {
                 התחל עכשיו בחינם
                 <ArrowLeft className="mr-2 h-5 w-5" />
               </a>
-              <a href="#features" className="cta-button inline-flex items-center justify-center bg-white hover:bg-gray-50 text-selflow-darkGreen border border-selflow-darkGreen font-medium py-3 px-8 rounded-full text-lg">
-                אני רוצה סדר בעסק שלי!
-              </a>
+              <a href="#features" className="cta-button inline-flex items-center justify-center bg-white hover:bg-gray-50 text-selflow-darkGreen border border-selflow-darkGreen font-medium py-3 px-8 rounded-full text-lg">אפשר עוד מידע?</a>
             </div>
             <div className="flex items-center text-selflow-darkGray mb-16">
               <Phone className="h-5 w-5 mr-2 text-selflow-green" />
