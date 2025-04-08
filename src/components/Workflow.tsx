@@ -40,7 +40,7 @@ const Workflow: React.FC = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">איך Selflow עובד?</h2>
-          <p className="text-xl max-w-3xl mx-auto">מערכת חכמה שמפשטת את תהליכי העבודה היומיומיים ומאפשרת לך להתמקד </p>
+          <p className="text-xl max-w-3xl mx-auto"> עוזר אישי חכם, מבוסס בינה מלאכותית, שמקבל ממך הוראות ולוקח את העסק שלך קדימה.</p>
         </div>
         
         <div className="relative h-[600px] animate-fade-in">
