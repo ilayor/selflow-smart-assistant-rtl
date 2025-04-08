@@ -1,5 +1,7 @@
+
 import React from 'react';
 import { Clock, Calendar, Users, MessageSquare, Smartphone } from 'lucide-react';
+
 const FeatureCard: React.FC<{
   icon: React.ReactNode;
   title: string;
@@ -19,6 +21,7 @@ const FeatureCard: React.FC<{
       <p className="text-lg text-selflow-darkGray">{description}</p>
     </div>;
 };
+
 const Features: React.FC = () => {
   return <section id="features" className="py-24 bg-selflow-lightGray">
       <div className="container mx-auto px-4">
@@ -37,7 +40,7 @@ const Features: React.FC = () => {
           </div>
           
           <div className="animate-slide-up">
-            <FeatureCard icon={<Users className="h-8 w-8 text-selflow-green" />} title="הגדלת שביעות רצון" description="עדכון מהיר של המידע בטבלאות ושליחת הודעת עדכון על כך על מנת שתדעו שהמידע שלכם במקום בטוח." color="bg-selflow-turquoise bg-opacity-20" />
+            <FeatureCard icon={<Users className="h-8 w-8 text-selflow-green" />} title="סדר וארגון" description="עדכון מהיר של המידע בטבלאות ושליחת הודעת עדכון על כך על מנת שתדעו שהמידע שלכם במקום בטוח." color="bg-selflow-turquoise bg-opacity-20" />
           </div>
           
           <div className="animate-slide-up">
@@ -79,4 +82,5 @@ const Features: React.FC = () => {
       </div>
     </section>;
 };
+
 export default Features;
