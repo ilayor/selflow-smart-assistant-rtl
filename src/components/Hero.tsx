@@ -13,7 +13,7 @@ const Hero: React.FC = () => {
       <div className="w-11/12 max-w-5xl mx-auto px-6 text-center">
         <div className="flex flex-col md:flex-row items-center">
           <div className="w-11/12 max-w-5xl mx-auto px-6 text-center">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-selflow-darkGreen">Selflow  
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-selflow-darkGreen">Selflow   
 הפשטות שבניהול עסק </h1>
             <p className="text-xl md:text-2xl mb-8 text-selflow-darkGray max-w-lg">
               העוזר החכם ב-WhatsApp שמנהל את העסק שלך באופן אוטומטי, מסדר את התורים וההודעות, ועוזר לך להתמקד במה שבאמת חשוב.
