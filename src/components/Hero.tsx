@@ -12,9 +12,9 @@ const Hero: React.FC = () => {
       
       <div className="w-11/12 max-w-5xl mx-auto px-6 text-center">
         <div className="flex flex-col md:flex-row items-center">
-          <div className="md:w-1/2 md:pl-12 animate-slide-up">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-selflow-darkGreen">Selflow 
- הפשטות שבניהול עסק 🚀</h1>
+          <div className="w-11/12 max-w-5xl mx-auto px-6 text-center">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-selflow-darkGreen">Selflow
+ הפשטות שבניהול עסק </h1>
             <p className="text-xl md:text-2xl mb-8 text-selflow-darkGray max-w-lg">
               העוזר החכם ב-WhatsApp שמנהל את העסק שלך באופן אוטומטי, מסדר את התורים וההודעות, ועוזר לך להתמקד במה שבאמת חשוב.
             </p>
@@ -63,7 +63,7 @@ const Hero: React.FC = () => {
                 </> : <>
                   {/* On desktop, keep original positioning */}
                   <div className="absolute -top-10 -left-10 z-10 animate-float">
-                    <div className="bg-white rounded-2xl shadow-lg p-4 max-w-[200px]">
+                    <div className="bg-white rounded-2xl shadow-lg p-4 max-w-[200px] py-[10px]">
                       <div className="flex items-center mb-2">
                         <MessageSquare className="h-5 w-5 text-selflow-green mr-2" />
                         <span className="font-bold text-sm">לקוחה</span>
