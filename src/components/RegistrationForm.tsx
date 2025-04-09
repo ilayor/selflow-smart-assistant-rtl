@@ -1,7 +1,13 @@
 
 import React, { useState } from 'react';
 import { useToast } from "@/hooks/use-toast";
-import { CheckCircle, Send } from 'lucide-react';
+import { CheckCircle, Send, Sparkles } from 'lucide-react';
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import * as z from "zod";
 
 interface FormData {
   full_name: string;
@@ -12,56 +18,52 @@ interface FormData {
   clients: string;
 }
 
+// Form validation schema
+const formSchema = z.object({
+  full_name: z.string().min(2, { message: "נא להזין שם מלא" }),
+  age: z.string().min(1, { message: "נא להזין גיל" }),
+  phone: z.string().min(9, { message: "נא להזין מספר טלפון תקין" }),
+  email: z.string().email({ message: "נא להזין כתובת אימייל תקינה" }),
+  business_description: z.string().min(10, { message: "נא לתאר את העסק בלפחות 10 תווים" }),
+  clients: z.string().min(1, { message: "נא להזין מספר לקוחות" }),
+});
+
 // Hidden webhook URL - not visible in client code when built
 const WEBHOOK_URL = "https://hook.eu2.make.com/tca9frrpz5lkdzflu8v24xh35vqris54";
 
 const RegistrationForm: React.FC = () => {
   const { toast } = useToast();
-  const [formData, setFormData] = useState<FormData>({
-    full_name: '',
-    age: '',
-    phone: '',
-    email: '',
-    business_description: '',
-    clients: '',
-  });
-  
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
-  };
+  const form = useForm<z.infer<typeof formSchema>>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      full_name: "",
+      age: "",
+      phone: "",
+      email: "",
+      business_description: "",
+      clients: "",
+    },
+  });
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  const onSubmit = async (values: z.infer<typeof formSchema>) => {
     setIsSubmitting(true);
-    
-    // Validate form
-    if (!formData.full_name || !formData.age || !formData.phone || !formData.email || !formData.business_description || !formData.clients) {
-      toast({
-        title: "שגיאה",
-        description: "יש למלא את כל השדות",
-        variant: "destructive",
-      });
-      setIsSubmitting(false);
-      return;
-    }
     
     try {
       // Create URLSearchParams object for form-urlencoded format
       const params = new URLSearchParams();
       
       // Add each form field to params
-      Object.entries(formData).forEach(([key, value]) => {
+      Object.entries(values).forEach(([key, value]) => {
         params.append(key, value);
       });
       
       console.log("Sending form-urlencoded payload:", params.toString());
       
       // Send data to webhook with form-urlencoded content type
-      const response = await fetch(WEBHOOK_URL, {
+      await fetch(WEBHOOK_URL, {
         method: "POST",
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",
@@ -79,15 +81,7 @@ const RegistrationForm: React.FC = () => {
         variant: "default",
       });
       
-      // Reset form after successful submission
-      setFormData({
-        full_name: '',
-        age: '',
-        phone: '',
-        email: '',
-        business_description: '',
-        clients: '',
-      });
+      form.reset();
       
     } catch (error) {
       console.error("Error submitting form:", error);
@@ -102,30 +96,30 @@ const RegistrationForm: React.FC = () => {
 
   if (isSuccess) {
     return (
-      <section className="py-20 bg-white animate-fade-in" id="thank-you">
+      <section className="py-20 bg-gradient-to-b from-white to-selflow-yellow/10 animate-fade-in" id="thank-you">
         <div className="container mx-auto px-4 max-w-3xl">
           <div className="text-center">
-            <div className="inline-block bg-selflow-yellow p-6 rounded-full mb-6">
+            <div className="inline-block bg-gradient-to-br from-selflow-yellow to-selflow-green/20 p-6 rounded-full mb-6 shadow-lg transform transition-transform hover:scale-105">
               <CheckCircle className="h-16 w-16 text-selflow-green" />
             </div>
             <h2 className="text-4xl md:text-5xl font-bold mb-6 text-selflow-darkGreen">תודה על ההרשמה! 🎉</h2>
             <p className="text-2xl mb-8">הפרטים שלך התקבלו בהצלחה. ניצור איתך קשר בקרוב כדי להתחיל את התהליך החכם שלך.</p>
             
-            <div className="bg-white rounded-2xl shadow-lg p-8 mb-10">
+            <div className="bg-white rounded-2xl shadow-xl p-8 mb-10 transform transition-all hover:shadow-2xl border border-selflow-green/10">
               <p className="text-xl mb-4">
                 <span className="font-bold">מה יקרה עכשיו?</span> 
               </p>
-              <div className="flex flex-col gap-4 max-w-md mx-auto text-right">
-                <div className="flex items-center">
-                  <span className="inline-flex items-center justify-center bg-selflow-green text-white rounded-full w-8 h-8 ml-3 flex-shrink-0">1</span>
+              <div className="flex flex-col gap-6 max-w-md mx-auto text-right">
+                <div className="flex items-center group">
+                  <span className="inline-flex items-center justify-center bg-selflow-green text-white rounded-full w-10 h-10 ml-4 flex-shrink-0 shadow-md group-hover:shadow-selflow-green/40 transition-all">1</span>
                   <p className="text-lg">צוות Selflow יצור איתך קשר תוך 24-48 שעות</p>
                 </div>
-                <div className="flex items-center">
-                  <span className="inline-flex items-center justify-center bg-selflow-green text-white rounded-full w-8 h-8 ml-3 flex-shrink-0">2</span>
+                <div className="flex items-center group">
+                  <span className="inline-flex items-center justify-center bg-selflow-green text-white rounded-full w-10 h-10 ml-4 flex-shrink-0 shadow-md group-hover:shadow-selflow-green/40 transition-all">2</span>
                   <p className="text-lg">נקים עבורך מערכת מותאמת אישית</p>
                 </div>
-                <div className="flex items-center">
-                  <span className="inline-flex items-center justify-center bg-selflow-green text-white rounded-full w-8 h-8 ml-3 flex-shrink-0">3</span>
+                <div className="flex items-center group">
+                  <span className="inline-flex items-center justify-center bg-selflow-green text-white rounded-full w-10 h-10 ml-4 flex-shrink-0 shadow-md group-hover:shadow-selflow-green/40 transition-all">3</span>
                   <p className="text-lg">תתחיל/י להשתמש במערכת וליהנות מהיתרונות</p>
                 </div>
               </div>
@@ -133,16 +127,16 @@ const RegistrationForm: React.FC = () => {
             
             <a 
               href="/" 
-              className="cta-button inline-flex items-center justify-center bg-selflow-turquoise hover:bg-selflow-green text-white font-medium py-3 px-8 rounded-full text-lg"
+              className="cta-button inline-flex items-center justify-center bg-selflow-green hover:bg-selflow-darkGreen text-white font-bold py-4 px-8 rounded-full text-lg shadow-lg hover:shadow-selflow-green/50 transition-all"
             >
               לחזרה לדף הראשי
             </a>
             
-            <div className="mt-10 flex justify-center gap-4">
-              <p className="text-xl">✨</p>
-              <p className="text-xl">🚀</p>
-              <p className="text-xl">💬</p>
-              <p className="text-xl">🎨</p>
+            <div className="mt-10 flex justify-center gap-6">
+              <span className="text-2xl animate-float">✨</span>
+              <span className="text-2xl animate-float-reverse">🚀</span>
+              <span className="text-2xl animate-float">💬</span>
+              <span className="text-2xl animate-float-reverse">🎨</span>
             </div>
           </div>
         </div>
@@ -151,112 +145,161 @@ const RegistrationForm: React.FC = () => {
   }
 
   return (
-    <section className="py-20 bg-white" id="registration">
-      <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-10">הרשמה לפיילוט</h2>
-        <form onSubmit={handleSubmit} className="max-w-2xl mx-auto bg-white rounded-2xl shadow-xl p-8">
-          <div className="mb-6">
-            <label htmlFor="full_name" className="block text-lg font-medium mb-2">שם מלא *</label>
-            <input
-              type="text"
-              id="full_name"
-              name="full_name"
-              value={formData.full_name}
-              onChange={handleChange}
-              className="form-input w-full p-3 border border-gray-300 rounded-lg focus:outline-none bg-gray-50 hover:bg-white transition-colors"
-              required
-            />
+    <section className="py-20 relative overflow-hidden bg-gradient-to-b from-white to-selflow-yellow/10" id="registration">
+      {/* Floating elements for design */}
+      <div className="absolute top-20 right-10 w-32 h-32 bg-selflow-green/5 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-20 left-10 w-40 h-40 bg-selflow-turquoise/5 rounded-full blur-3xl"></div>
+      
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="max-w-2xl mx-auto text-center mb-12">
+          <div className="inline-block bg-selflow-yellow p-3 rounded-full mb-4">
+            <Sparkles className="h-6 w-6 text-selflow-darkGreen" />
           </div>
-          
-          <div className="mb-6">
-            <label htmlFor="age" className="block text-lg font-medium mb-2">גיל *</label>
-            <input
-              type="number"
-              id="age"
-              name="age"
-              value={formData.age}
-              onChange={handleChange}
-              className="form-input w-full p-3 border border-gray-300 rounded-lg focus:outline-none bg-gray-50 hover:bg-white transition-colors"
-              min="17"
-              required
-            />
-          </div>
-          
-          <div className="mb-6">
-            <label htmlFor="phone" className="block text-lg font-medium mb-2">טלפון *</label>
-            <input
-              type="tel"
-              id="phone"
-              name="phone"
-              value={formData.phone}
-              onChange={handleChange}
-              placeholder="050-1234567"
-              className="form-input w-full p-3 border border-gray-300 rounded-lg focus:outline-none bg-gray-50 hover:bg-white transition-colors"
-              required
-            />
-          </div>
-          
-          <div className="mb-6">
-            <label htmlFor="email" className="block text-lg font-medium mb-2">אימייל *</label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              className="form-input w-full p-3 border border-gray-300 rounded-lg focus:outline-none bg-gray-50 hover:bg-white transition-colors"
-              required
-            />
-          </div>
-          
-          <div className="mb-6">
-            <label htmlFor="business_description" className="block text-lg font-medium mb-2">תיאור העסק *</label>
-            <textarea
-              id="business_description"
-              name="business_description"
-              value={formData.business_description}
-              onChange={handleChange}
-              className="form-input w-full p-3 border border-gray-300 rounded-lg focus:outline-none bg-gray-50 hover:bg-white transition-colors"
-              rows={4}
-              placeholder="ספר/י לנו קצת על העסק שלך (תחום, ותק, סוגי שירותים)"
-              required
-            />
-          </div>
-          
-          <div className="mb-8">
-            <label htmlFor="clients" className="block text-lg font-medium mb-2">מספר לקוחות (בחודש) *</label>
-            <input
-              type="number"
-              id="clients"
-              name="clients"
-              value={formData.clients}
-              onChange={handleChange}
-              className="form-input w-full p-3 border border-gray-300 rounded-lg focus:outline-none bg-gray-50 hover:bg-white transition-colors"
-              min="0"
-              placeholder="הזן מספר לקוחות חודשי"
-              required
-            />
-          </div>
-          
-          <button
-            type="submit"
-            disabled={isSubmitting}
-            className="cta-button w-full flex items-center justify-center bg-selflow-green hover:bg-selflow-darkGreen text-white font-bold py-4 px-6 rounded-xl text-xl gap-2"
-          >
-            {isSubmitting ? (
-              <>שולח... <div className="animate-spin h-5 w-5 border-2 border-white rounded-full border-t-transparent"></div></>
-            ) : (
-              <>להצטרפות לפיילוט <Send className="h-5 w-5" /></>
-            )}
-          </button>
-          
-          <p className="text-center mt-4 text-selflow-darkGray">
-            הפרטים שלך בטוחים אצלנו. לא נשתף אותם עם גורמים שלישיים.
-          </p>
-        </form>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">הרשמה לפיילוט</h2>
+          <p className="text-lg text-gray-600">מלאו את הפרטים ונחזור אליכם תוך 24-48 שעות</p>
+        </div>
+        
+        <Form {...form}>
+          <form onSubmit={form.handleSubmit(onSubmit)} className="max-w-2xl mx-auto bg-white rounded-2xl shadow-xl p-8 border border-selflow-green/10">
+            <div className="space-y-6">
+              <FormField
+                control={form.control}
+                name="full_name"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className="text-lg font-medium">שם מלא</FormLabel>
+                    <FormControl>
+                      <Input 
+                        {...field} 
+                        className="p-3 text-base bg-gray-50 hover:bg-white focus:bg-white transition-colors rounded-xl" 
+                        placeholder="הזן את שמך המלא"
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <FormField
+                  control={form.control}
+                  name="age"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel className="text-lg font-medium">גיל</FormLabel>
+                      <FormControl>
+                        <Input 
+                          {...field} 
+                          type="number" 
+                          min="17"
+                          className="p-3 text-base bg-gray-50 hover:bg-white focus:bg-white transition-colors rounded-xl" 
+                          placeholder="הזן את גילך"
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                
+                <FormField
+                  control={form.control}
+                  name="phone"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel className="text-lg font-medium">טלפון</FormLabel>
+                      <FormControl>
+                        <Input 
+                          {...field} 
+                          type="tel" 
+                          className="p-3 text-base bg-gray-50 hover:bg-white focus:bg-white transition-colors rounded-xl" 
+                          placeholder="050-1234567"
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+              </div>
+              
+              <FormField
+                control={form.control}
+                name="email"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className="text-lg font-medium">אימייל</FormLabel>
+                    <FormControl>
+                      <Input 
+                        {...field} 
+                        type="email" 
+                        className="p-3 text-base bg-gray-50 hover:bg-white focus:bg-white transition-colors rounded-xl" 
+                        placeholder="your.email@example.com"
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              
+              <FormField
+                control={form.control}
+                name="business_description"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className="text-lg font-medium">תיאור העסק</FormLabel>
+                    <FormControl>
+                      <Textarea 
+                        {...field} 
+                        className="p-3 text-base bg-gray-50 hover:bg-white focus:bg-white transition-colors rounded-xl min-h-[120px]" 
+                        placeholder="ספר/י לנו קצת על העסק שלך (תחום, ותק, סוגי שירותים)"
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              
+              <FormField
+                control={form.control}
+                name="clients"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className="text-lg font-medium">מספר לקוחות (בחודש)</FormLabel>
+                    <FormControl>
+                      <Input 
+                        {...field} 
+                        type="number" 
+                        min="0"
+                        className="p-3 text-base bg-gray-50 hover:bg-white focus:bg-white transition-colors rounded-xl" 
+                        placeholder="הזן מספר לקוחות חודשי"
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="cta-button w-full flex items-center justify-center bg-selflow-green hover:bg-selflow-darkGreen text-white font-bold py-4 px-6 rounded-xl text-xl gap-2 shadow-lg hover:shadow-selflow-green/50 transition-all mt-6"
+              >
+                {isSubmitting ? (
+                  <>שולח... <div className="animate-spin h-5 w-5 border-2 border-white rounded-full border-t-transparent"></div></>
+                ) : (
+                  <>להצטרפות לפיילוט <Send className="h-5 w-5" /></>
+                )}
+              </button>
+              
+              <p className="text-center mt-2 text-selflow-darkGray text-sm">
+                הפרטים שלך בטוחים אצלנו. לא נשתף אותם עם גורמים שלישיים.
+              </p>
+            </div>
+          </form>
+        </Form>
       </div>
     </section>
   );
 };
 
 export default RegistrationForm;
+
