@@ -57,15 +57,6 @@ const Hero: React.FC = () => {
                   </div>
                 </div>
               </div>
-              
-              <img 
-                src="https://storage.googleapis.com/lovable-files/selflow-mockup.png" 
-                alt="Selflow WhatsApp Assistant" 
-                className="w-full h-auto rounded-2xl shadow-2xl z-0" 
-                onError={e => {
-                  e.currentTarget.src = "https://via.placeholder.com/600x400?text=Selflow+WhatsApp+Assistant";
-                }} 
-              />
             </div>
           </div>
         </div>
