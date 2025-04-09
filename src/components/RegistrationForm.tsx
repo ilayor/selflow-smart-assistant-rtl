@@ -135,7 +135,7 @@ const RegistrationForm: React.FC = () => {
               href="/" 
               className="cta-button inline-flex items-center justify-center bg-selflow-turquoise hover:bg-selflow-green text-white font-medium py-3 px-8 rounded-full text-lg"
             >
-              רוצה להכיר אותנו עוד? לחצו כאן
+              לחזרה לדף הראשי
             </a>
             
             <div className="mt-10 flex justify-center gap-4">
