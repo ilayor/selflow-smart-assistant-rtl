@@ -7,7 +7,7 @@ const Hero: React.FC = () => {
   const isMobile = useIsMobile();
   
   return (
-    <section className="bg-[#b0eab0] min-h-screen flex items-center pt-24 pb-16 relative">
+    <section className="bg-[#97DB9A] min-h-screen flex items-center pt-24 pb-16 relative">
       {/* Floating bubbles */}
       <div className="bubble bubble-1"></div>
       <div className="bubble bubble-2"></div>
@@ -17,11 +17,11 @@ const Hero: React.FC = () => {
       <div className="w-11/12 max-w-5xl mx-auto px-6 text-center">
         <div className="flex flex-col md:flex-row items-center">
           <div className="w-11/12 max-w-5xl mx-auto px-6 text-center">
-            <h1 className="flex flex-col items-center text-[#f5f5f5] mb-6 drop-shadow-lg">
-              <span className="text-5xl lg:text-7xl font-bold mb-2 text-shadow-md">Selflow</span>
+            <h1 className="flex flex-col items-center text-[#2E2E2E] mb-6">
+              <span className="text-5xl lg:text-7xl font-bold mb-2 text-shadow-sm">Selflow</span>
               <span className="text-3xl lg:text-4xl font-semibold text-shadow-sm">הפשטות שבניהול עסק</span>
             </h1>
-            <p className="text-xl md:text-2xl mb-8 text-[#f5f5f5] max-w-lg mx-auto font-semibold drop-shadow-md">העוזר החכם ב-WhatsApp שמנהל את העסק שלך באופן חכם, מסדר את המידע החשוב של העסק, ועוזר לך להתמקד במה שבאמת חשוב  -  הלקוחות שלך.</p>
+            <p className="text-xl md:text-2xl mb-8 text-[#2E2E2E] max-w-lg mx-auto font-semibold">העוזר החכם ב-WhatsApp שמנהל את העסק שלך באופן חכם, מסדר את המידע החשוב של העסק, ועוזר לך להתמקד במה שבאמת חשוב  -  הלקוחות שלך.</p>
             <div className="flex flex-col sm:flex-row gap-4 mb-8 justify-center">
               <a href="#pilot" className="cta-button inline-flex items-center justify-center bg-selflow-green hover:bg-selflow-darkGreen text-white font-bold py-3 px-8 rounded-full text-lg shadow-md">
                 הרשמה לפיילוט
@@ -29,8 +29,8 @@ const Hero: React.FC = () => {
               </a>
               <a href="#features" className="cta-button inline-flex items-center justify-center bg-white hover:bg-gray-50 text-selflow-darkGreen border border-selflow-darkGreen font-semibold py-3 px-8 rounded-full text-lg shadow-md">אפשר עוד מידע?</a>
             </div>
-            <div className="flex items-center justify-center text-[#f5f5f5] mb-16 font-semibold drop-shadow-md">
-              <Phone className="h-5 w-5 mr-2 text-[#f5f5f5]" />
+            <div className="flex items-center justify-center text-[#2E2E2E] mb-16 font-semibold">
+              <Phone className="h-5 w-5 mr-2 text-[#2E2E2E]" />
               <p className="text-lg">אין צורך בהתקנת אפליקציה - הכל דרך WhatsApp!</p>
             </div>
           </div>

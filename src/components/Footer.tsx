@@ -1,6 +1,15 @@
+
 import React from 'react';
 import { Heart, Instagram, Facebook, Mail, Phone } from 'lucide-react';
+
 const Footer: React.FC = () => {
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
+
   return <footer className="bg-selflow-darkGray text-white py-12">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row justify-between items-center">
@@ -21,6 +30,7 @@ const Footer: React.FC = () => {
                 <li><a href="#workflow" className="hover:text-selflow-turquoise transition-colors">איך זה עובד</a></li>
                 <li><a href="#about" className="hover:text-selflow-turquoise transition-colors">מי אנחנו</a></li>
                 <li><a href="#pilot" className="hover:text-selflow-turquoise transition-colors">הצטרפות לפיילוט</a></li>
+                <li><button onClick={scrollToTop} className="hover:text-selflow-turquoise transition-colors">לחזרה לעמוד הראשי</button></li>
               </ul>
             </div>
             
@@ -33,7 +43,7 @@ const Footer: React.FC = () => {
                 </li>
                 <li className="flex items-center">
                   <Phone className="h-5 w-5 ml-2 text-selflow-turquoise" />
-                  <a href="tel:0501234567" className="hover:text-selflow-turquoise transition-colors">0556629293 - סהר </a>
+                  <a href="tel:0501234567" className="hover:text-selflow-turquoise transition-colors">0556629293 - סהר </a>
                 </li>
               </ul>
               <div className="flex space-x-4 mt-3">
@@ -50,4 +60,5 @@ const Footer: React.FC = () => {
       </div>
     </footer>;
 };
+
 export default Footer;
