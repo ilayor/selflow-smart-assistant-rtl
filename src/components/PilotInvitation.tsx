@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Rocket, Clock, CheckCircle, Users } from 'lucide-react';
+import { Rocket, Clock, CheckCircle, Users, Calendar } from 'lucide-react';
 
 const PilotInvitation: React.FC = () => {
   return (
@@ -38,6 +38,10 @@ const PilotInvitation: React.FC = () => {
                   <li className="flex items-center">
                     <CheckCircle className="ml-2 h-5 w-5 text-selflow-green" />
                     <span>דוחות ותובנות בענייני כספים ומלאי</span>
+                  </li>
+                  <li className="flex items-center">
+                    <Calendar className="ml-2 h-5 w-5 text-selflow-green" />
+                    <span className="font-semibold">הפיילוט יתקיים בין התאריכים 13.4-27.4</span>
                   </li>
                 </ul>
               </div>
