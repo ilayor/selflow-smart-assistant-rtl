@@ -21,7 +21,7 @@ const Hero: React.FC = () => {
               <span className="text-5xl lg:text-7xl font-bold mb-2 text-shadow-sm">Selflow</span>
               <span className="text-3xl lg:text-4xl font-semibold text-shadow-sm">הפשטות שבניהול עסק</span>
             </h1>
-            <p className="text-xl md:text-2xl mb-8 text-[#2E2E2E] max-w-lg mx-auto font-semibold">העוזר החכם ב-WhatsApp שמנהל את העסק שלך באופן חכם, מסדר את המידע החשוב של העסק, ועוזר לך להתמקד במה שבאמת חשוב  -  הלקוחות שלך.</p>
+            <p className="text-xl md:text-2xl mb-8 text-[#333333] max-w-lg mx-auto font-semibold">העוזר החכם ב-WhatsApp שמנהל את העסק שלך באופן חכם, מסדר את המידע החשוב של העסק, ועוזר לך להתמקד במה שבאמת חשוב  -  הלקוחות שלך.</p>
             <div className="flex flex-col sm:flex-row gap-4 mb-8 justify-center">
               <a href="#pilot" className="cta-button inline-flex items-center justify-center bg-selflow-green hover:bg-selflow-darkGreen text-white font-bold py-3 px-8 rounded-full text-lg shadow-md">
                 הרשמה לפיילוט
@@ -29,8 +29,8 @@ const Hero: React.FC = () => {
               </a>
               <a href="#features" className="cta-button inline-flex items-center justify-center bg-white hover:bg-gray-50 text-selflow-darkGreen border border-selflow-darkGreen font-semibold py-3 px-8 rounded-full text-lg shadow-md">אפשר עוד מידע?</a>
             </div>
-            <div className="flex items-center justify-center text-[#2E2E2E] mb-16 font-semibold">
-              <Phone className="h-5 w-5 mr-2 text-[#2E2E2E]" />
+            <div className="flex items-center justify-center text-[#333333] mb-16 font-semibold">
+              <Phone className="h-5 w-5 mr-2 text-[#333333]" />
               <p className="text-lg">אין צורך בהתקנת אפליקציה - הכל דרך WhatsApp!</p>
             </div>
           </div>
