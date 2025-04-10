@@ -1,5 +1,7 @@
+
 import React from 'react';
 import { Rocket, Clock, CheckCircle, Users, Calendar } from 'lucide-react';
+
 const PilotInvitation: React.FC = () => {
   return <section id="pilot" className="py-20 gradient-bg">
       <div className="container mx-auto px-4">
@@ -38,7 +40,7 @@ const PilotInvitation: React.FC = () => {
                   </li>
                   <li className="flex items-center">
                     <Calendar className="ml-2 h-5 w-5 text-selflow-green" />
-                    <span className="font-semibold">הפיילוט יתקיים בין התאריכים 14.4-27.4</span>
+                    <span className="font-semibold">הפיילוט יתקיים בין התאריכים 13.4-27.4</span>
                   </li>
                 </ul>
               </div>
@@ -77,4 +79,5 @@ const PilotInvitation: React.FC = () => {
       </div>
     </section>;
 };
+
 export default PilotInvitation;
