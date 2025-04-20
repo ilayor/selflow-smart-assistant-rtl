@@ -40,27 +40,27 @@ const Workflow: React.FC = () => {
   // פריטי העבודה - הוצאנו למשתנה כדי להשתמש גם בתצוגת מובייל וגם בתצוגת דסקטופ
   const workflowItems = [
     {
-      icon: <MessageSquare className={`${isMobile ? 'h-6 w-6' : 'h-8 w-8'}`} />,
+      icon: <MessageSquare className={`${isMobile ? 'h-8 w-8' : 'h-10 w-10'}`} />,
       title: "קבלת הודעות",
       description: "שליחת הודעה לעוזר האישי בצ'אט הוואצאפ"
     },
     {
-      icon: <Brain className={`${isMobile ? 'h-6 w-6' : 'h-8 w-8'}`} />,
+      icon: <Brain className={`${isMobile ? 'h-8 w-8' : 'h-10 w-10'}`} />,
       title: "ניתוח חכם",
       description: "המערכת מבינה את תוכן ההודעה ומסווגת אותה לפי סוג הפנייה"
     },
     {
-      icon: <RefreshCw className={`${isMobile ? 'h-6 w-6' : 'h-8 w-8'}`} />,
+      icon: <RefreshCw className={`${isMobile ? 'h-8 w-8' : 'h-10 w-10'}`} />,
       title: "פעולה אוטומטית",
       description: "תיאום תורים, ניהול הכנסות הוצאות,ניהול מלאי, הכנסת תזכורות ותורים ליומן"
     },
     {
-      icon: <FileText className={`${isMobile ? 'h-6 w-6' : 'h-8 w-8'}`} />,
+      icon: <FileText className={`${isMobile ? 'h-8 w-8' : 'h-10 w-10'}`} />,
       title: "דוחות ותובנות",
       description: "קבלת דוחות מפורטים על הפעילות, המאפשרים לך לקבל החלטות חכמות"
     },
     {
-      icon: <Clock className={`${isMobile ? 'h-6 w-6' : 'h-8 w-8'}`} />,
+      icon: <Clock className={`${isMobile ? 'h-8 w-8' : 'h-10 w-10'} />,
       title: "חיסכון בזמן",
       description: "פחות עבודה ידנית, יותר זמן להתמקד בעיסוק המקצועי ובלקוחות"
     }
