@@ -69,7 +69,7 @@ const Features: React.FC = () => {
               e.currentTarget.src = "https://via.placeholder.com/600x400?text=Nail+Salon";
             }} />
             </div>
-            <h3 className="text-xl font-bold text-center">הציפורניים של הלקוחות שלך בעדיפות ראושנה</h3>
+            <h3 className="text-xl font-bold text-center">הציפורניים של הלקוחות שלך בעדיפות ראשונה</h3>
           </div>
         </div>
         
