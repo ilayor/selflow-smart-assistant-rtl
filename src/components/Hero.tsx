@@ -1,13 +1,9 @@
-
 import React from 'react';
 import { ArrowLeft, Phone, MessageSquare } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
-
 const Hero: React.FC = () => {
   const isMobile = useIsMobile();
-  
-  return (
-    <section className="bg-[#97DB9A] min-h-screen flex items-center pt-24 pb-16 relative">
+  return <section className="bg-[#97DB9A] min-h-screen flex items-center pt-24 pb-16 relative">
       {/* Floating bubbles */}
       <div className="bubble bubble-1"></div>
       <div className="bubble bubble-2"></div>
@@ -19,7 +15,8 @@ const Hero: React.FC = () => {
           <div className="w-11/12 max-w-5xl mx-auto px-6 text-center">
             <h1 className="flex flex-col items-center text-white mb-6">
               <span className="text-5xl lg:text-7xl font-bold mb-2 text-shadow-md">Selflow</span>
-              <span className="text-3xl lg:text-4xl font-semibold text-shadow-sm">הפשטות שבניהול עסק</span>
+              <span className="text-3xl lg:text-4xl font-semibold text-shadow-sm">
+            </span>
             </h1>
             <p className="text-xl md:text-2xl mb-8 text-white max-w-lg mx-auto font-bold text-shadow-sm">העוזר החכם ב-WhatsApp שמנהל את העסק שלך באופן חכם, מסדר את המידע החשוב של העסק, ועוזר לך להתמקד במה שבאמת חשוב  -  הלקוחות שלך.</p>
             <div className="flex flex-col sm:flex-row gap-4 mb-8 justify-center">
@@ -64,8 +61,6 @@ const Hero: React.FC = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default Hero;
