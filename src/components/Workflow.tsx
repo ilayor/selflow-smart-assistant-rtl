@@ -59,11 +59,12 @@ const Workflow: React.FC = () => {
       title: "דוחות ותובנות",
       description: "קבלת דוחות מפורטים על הפעילות, המאפשרים לך לקבל החלטות חכמות"
     },
-    {
-      icon: <Clock className={`${isMobile ? 'h-8 w-8' : 'h-10 w-10'} />,
-      title: "חיסכון בזמן",
-      description: "פחות עבודה ידנית, יותר זמן להתמקד בעיסוק המקצועי ובלקוחות"
-    }
+  {
+  icon: <Clock className={`${isMobile ? 'h-8 w-8' : 'h-10 w-10'}`} />,
+  title: "חיסכון בזמן",
+  description: "פחות עבודה ידנית, יותר זמן להתמקד בעיסוק המקצועי ובלקוחות"
+}
+
   ];
   
   return (
