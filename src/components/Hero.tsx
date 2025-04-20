@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import { ArrowLeft, HelpCircle } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
@@ -6,7 +5,7 @@ import { cn } from '@/lib/utils';
 
 const Hero: React.FC = () => {
   const isMobile = useIsMobile();
-  
+
   useEffect(() => {
     const animElements = document.querySelectorAll('.hero-anim');
     animElements.forEach((el, index) => {
@@ -33,25 +32,29 @@ const Hero: React.FC = () => {
         <div className="absolute w-96 h-96 rounded-full bg-white/30 blur-3xl -top-20 -left-20"></div>
         <div className="absolute w-96 h-96 rounded-full bg-white/30 blur-3xl bottom-20 right-10"></div>
       </div>
-      
+
       <div className="container mx-auto px-6 z-10 relative">
         <div className="flex flex-col md:flex-row items-center justify-between gap-12 md:gap-16">
+          
+          {/* טקסט ותוכן */}
           <div className="w-full md:w-3/5 text-center">
             <h1 className="hero-anim opacity-0 -translate-y-4 transition-all duration-700 text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight text-shadow-lg">
               בעל עסק עצמאי?
               <br />
-              הרשה לנו להכיר לך את <span className="text-white">SELFLOW</span>,
+              תכיר את SelFlow <span className="text-white">SELFLOW</span>,
               <br />
               העוזר האישי החדש של העסק שלך 💬
             </h1>
-            
+
             <p className="hero-anim opacity-0 -translate-y-4 transition-all duration-700 delay-300 text-xl md:text-2xl text-white mb-6 max-w-2xl mx-auto font-medium">
               נהל את העסק שלך בצ'אט אחד חכם.
               <br />
               כל זה קורה בצ'אט האהוב של WhatsApp 📲 – בלי אפליקציות מיותרות.
             </p>
-            
+
+            {/* כפתורים */}
             <div className="hero-anim opacity-0 -translate-y-4 transition-all duration-700 delay-500 flex flex-col sm:flex-row gap-6 justify-center items-center mb-12">
+              {/* כפתור תכלת מלא */}
               <a 
                 href="#pilot" 
                 className={cn(
@@ -62,12 +65,14 @@ const Hero: React.FC = () => {
                 הצטרפות לפיילוט
                 <ArrowLeft className="w-5 h-5" />
               </a>
+
+              {/* כפתור outline לבן */}
               <a 
                 href="#workflow" 
                 className={cn(
                   buttonBaseStyles,
                   "border-2 border-white text-white",
-                  "hover:bg-[#25D366] hover:border-[#25D366]"
+                  "hover:bg-[#25D366] hover:text-white hover:border-[#25D366]"
                 )}
               >
                 איך זה עובד?
@@ -75,7 +80,8 @@ const Hero: React.FC = () => {
               </a>
             </div>
           </div>
-          
+
+          {/* תמונה */}
           <div className="hero-anim opacity-0 -translate-y-4 transition-all duration-700 delay-700 w-full md:w-2/5 flex justify-center">
             <div className="relative w-64 h-64 md:w-96 md:h-96 flex items-center justify-center">
               <div className="absolute w-full h-full bg-white/20 rounded-full blur-xl"></div>
@@ -86,6 +92,7 @@ const Hero: React.FC = () => {
               />
             </div>
           </div>
+
         </div>
       </div>
     </section>
@@ -93,3 +100,4 @@ const Hero: React.FC = () => {
 };
 
 export default Hero;
+
