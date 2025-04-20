@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 
@@ -29,21 +28,19 @@ const Header: React.FC = () => {
     >
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center">
+          {/* Full Selflow Logo */}
+          <div className="text-3xl font-bold">
+            <a href="/" className="inline-block">
+              <img
+                src="/lovable-uploads/selflow-banner.png"
+                alt="Selflow"
+                className="h-12 object-contain"
+                style={{ backgroundColor: 'transparent' }}
+              />
+            </a>
+          </div>
 
-          {/* לוגו שמחזיר לעמוד הבית */}
-      <div className="text-3xl font-bold">
-  <a href="/" className="inline-block">
-    <img
-      src="https://selflow-smart-assistant-rtl.lovable.app/lovable-uploads/selflow-icon-transparent.png"
-      alt="Selflow Logo"
-      className="h-16 w-16 object-contain"
-      style={{ backgroundColor: 'transparent' }}
-    />
-  </a>
-</div>
-
-
-          {/* כפתור תפריט מובייל */}
+          {/* Mobile menu button */}
           <button 
             className="md:hidden text-selflow-darkGreen focus:outline-none"
             onClick={toggleMenu}
@@ -52,12 +49,12 @@ const Header: React.FC = () => {
             {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
 
-          {/* ניווט לדסקטופ */}
+          {/* Desktop navigation */}
           <nav className="hidden md:flex space-x-8 space-x-reverse">
             <a 
               href="#features" 
               className={`hover:text-selflow-turquoise transition-colors ${
-                isScrolled ? 'text-selflow-darkGray' : 'text-selflow-darkGray'
+                isScrolled ? 'text-selflow-darkGray' : 'text-white'
               }`}
             >
               היתרונות
@@ -65,7 +62,7 @@ const Header: React.FC = () => {
             <a 
               href="#workflow" 
               className={`hover:text-selflow-turquoise transition-colors ${
-                isScrolled ? 'text-selflow-darkGray' : 'text-selflow-darkGray'
+                isScrolled ? 'text-selflow-darkGray' : 'text-white'
               }`}
             >
               איך זה עובד
@@ -73,21 +70,21 @@ const Header: React.FC = () => {
             <a 
               href="#about" 
               className={`hover:text-selflow-turquoise transition-colors ${
-                isScrolled ? 'text-selflow-darkGray' : 'text-selflow-darkGray'
+                isScrolled ? 'text-selflow-darkGray' : 'text-white'
               }`}
             >
               מי אנחנו
             </a>
             <a 
               href="#pilot" 
-              className="bg-selflow-green hover:bg-selflow-darkGreen text-white px-4 py-2 rounded-full transition-colors"
+              className="bg-[#1DD9E3] hover:bg-[#19c5ce] text-white px-6 py-2 rounded-full transition-colors"
             >
-              הצטרפות לפיילוט
+              הצטרפות ��פיילוט
             </a>
           </nav>
         </div>
 
-        {/* תפריט מובייל */}
+        {/* Mobile menu */}
         {isMenuOpen && (
           <div className="md:hidden absolute top-full left-0 right-0 bg-white shadow-lg py-4 animate-fade-in">
             <nav className="flex flex-col space-y-4 px-4">
