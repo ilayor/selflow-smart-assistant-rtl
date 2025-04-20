@@ -33,7 +33,7 @@ const Header: React.FC = () => {
           {/* לוגו שמחזיר לעמוד הבית */}
           <div className="text-3xl font-bold">
             <a href="/" className="inline-block">
-              <img src="public/lovable-uploads/logo-small.png" className="h-10" />
+              <img src=""https://selflow-smart-assistant-rtl.lovable.app/lovable-uploads/logo-small.png" className="h-10" />
             </a>
           </div>
 
