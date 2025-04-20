@@ -39,9 +39,9 @@ const Hero: React.FC = () => {
           {/* טקסט ותוכן */}
           <div className="w-full md:w-3/5 text-center">
             <h1 className="hero-anim opacity-0 -translate-y-4 transition-all duration-700 text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight text-shadow-lg">
-              בעל עסק עצמאי?
+              יש לך עסק עצמאי?
               <br />
-              תכיר את SelFlow <span className="text-white">SELFLOW</span>,
+              רוצה לקחת אותו לשלב הבא? <span className="text-white">SELFLOW</span>,
               <br />
               העוזר האישי החדש של העסק שלך 💬
             </h1>
