@@ -1,8 +1,10 @@
 import React from 'react';
 import { ArrowLeft, Phone, MessageSquare } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
+
 const Hero: React.FC = () => {
   const isMobile = useIsMobile();
+  
   return <section className="bg-[#97DB9A] min-h-screen flex items-center pt-24 pb-16 relative">
       {/* Floating bubbles */}
       <div className="bubble bubble-1"></div>
@@ -13,11 +15,13 @@ const Hero: React.FC = () => {
       <div className="w-11/12 max-w-5xl mx-auto px-6 text-center">
         <div className="flex flex-col md:flex-row items-center">
           <div className="w-11/12 max-w-5xl mx-auto px-6 text-center">
-            <h1 className="flex flex-col items-center text-white mb-6">
-              <span className="text-5xl lg:text-7xl font-bold mb-2 text-shadow-md">Selflow</span>
-              <span className="text-3xl lg:text-4xl font-semibold text-shadow-sm">
-            </span>
-            </h1>
+            <div className="flex flex-col items-center mb-6">
+              <img 
+                src="/lovable-uploads/e754f1aa-c9f2-4dc0-9840-de836edf0304.png"
+                alt="Selflow - WhatsApp Smart Assistant"
+                className="w-[300px] md:w-[400px] mb-2"
+              />
+            </div>
             <p className="text-xl md:text-2xl mb-8 text-white max-w-lg mx-auto font-bold text-shadow-sm">העוזר החכם ב-WhatsApp שמנהל את העסק שלך באופן חכם, מסדר את המידע החשוב של העסק, ועוזר לך להתמקד במה שבאמת חשוב  -  הלקוחות שלך.</p>
             <div className="flex flex-col sm:flex-row gap-4 mb-8 justify-center">
               <a href="#pilot" className="cta-button inline-flex items-center justify-center bg-selflow-green hover:bg-selflow-darkGreen text-white font-bold py-3 px-8 rounded-full text-lg shadow-md">
@@ -63,4 +67,5 @@ const Hero: React.FC = () => {
       </div>
     </section>;
 };
+
 export default Hero;
