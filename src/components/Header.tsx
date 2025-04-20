@@ -27,12 +27,14 @@ const Header: React.FC = () => {
         isScrolled ? 'py-2 bg-white shadow-md' : 'py-4 bg-transparent'
       }`}
     >
-      <div className="container mx-auto px-4">
-        <div className="flex justify-between items-center">
-          <div className={`text-3xl font-bold ${isScrolled ? 'text-selflow-darkGreen' : 'text-selflow-darkGreen'}`}>
-            Selflow
-          </div>
-          
+  <a href="/" className="inline-block">
+  <img
+    src="/logo-small.png"
+    alt="Selflow Logo"
+    className="h-10"
+  />
+</a>
+      
           {/* Mobile menu button */}
           <button 
             className="md:hidden text-selflow-darkGreen focus:outline-none"
