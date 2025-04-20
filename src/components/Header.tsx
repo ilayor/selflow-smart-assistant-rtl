@@ -31,19 +31,15 @@ const Header: React.FC = () => {
         <div className="flex justify-between items-center">
 
           {/* לוגו שמחזיר לעמוד הבית */}
-         <div className="text-3xl font-bold">
- <a href="/" className="inline-block">
-  <img
-  src="https://selflow-smart-assistant-rtl.lovable.app/lovable-uploads/selflow-icon-transparent.png"
-  alt="Selflow Logo"
-  className="h-12 w-12 object-contain"
-/>
-
-    alt="Selflow Logo"
-    className="h-16 object-contain"
-    style={{ backgroundColor: 'transparent' }}
-  />
-</a>
+      <div className="text-3xl font-bold">
+  <a href="/" className="inline-block">
+    <img
+      src="https://selflow-smart-assistant-rtl.lovable.app/lovable-uploads/selflow-icon-transparent.png"
+      alt="Selflow Logo"
+      className="h-16 w-16 object-contain"
+      style={{ backgroundColor: 'transparent' }}
+    />
+  </a>
 </div>
 
 
