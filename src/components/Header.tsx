@@ -1,6 +1,5 @@
-
 import React, { useState } from 'react';
-import { Menu, X, HelpCircle, ArrowLeft } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 const Header: React.FC = () => {
@@ -25,7 +24,7 @@ const Header: React.FC = () => {
   );
 
   return (
-    <header className="fixed w-full z-50 py-4 bg-gradient-to-br from-[#A8E6CF] to-[#25D366]">
+    <header className="fixed w-full z-50 py-2 bg-gradient-to-br from-[#A8E6CF] to-[#25D366]">
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center">
           <div className="text-3xl font-bold order-1">
@@ -33,7 +32,7 @@ const Header: React.FC = () => {
               <img
                 src="/lovable-uploads/24b0dcfa-72ee-47d4-8483-9dc536178a02.png"
                 alt="Selflow - WhatsApp Smart Assistant"
-                className="h-20 object-contain"
+                className="h-16 object-contain"
               />
             </a>
           </div>
@@ -96,3 +95,4 @@ const Header: React.FC = () => {
 };
 
 export default Header;
+
