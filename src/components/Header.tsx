@@ -32,13 +32,14 @@ const Header: React.FC = () => {
 
           {/* לוגו שמחזיר לעמוד הבית */}
          <div className="text-3xl font-bold">
-  <a href="/" className="inline-block">
-    <img
-      src="https://selflow-smart-assistant-rtl.lovable.app/lovable-uploads/logo-small.png"
-      alt="Selflow Logo"
-      className="h-10"
-    />
-  </a>
+ <a href="/" className="inline-block">
+  <img
+    src="https://selflow-smart-assistant-rtl.lovable.app/lovable-uploads/logo-small.png"
+    alt="Selflow Logo"
+    className="h-16 object-contain"
+    style={{ backgroundColor: 'transparent' }}
+  />
+</a>
 </div>
 
 
