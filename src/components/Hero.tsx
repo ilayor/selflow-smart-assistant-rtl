@@ -1,5 +1,6 @@
+
 import React, { useEffect } from 'react';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, HelpCircle } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { cn } from '@/lib/utils';
 
@@ -15,6 +16,13 @@ const Hero: React.FC = () => {
       }, 200 * (index + 1));
     });
   }, []);
+
+  const buttonBaseStyles = cn(
+    "inline-flex items-center justify-center gap-2",
+    "font-bold py-4 px-8 rounded-full text-lg",
+    "w-full sm:w-[200px]",
+    "transition-all duration-300 hover:-translate-y-1",
+  );
 
   return (
     <section className="relative min-h-screen pt-24 pb-16 overflow-hidden bg-gradient-to-br from-[#A8E6CF] to-[#25D366]">
@@ -42,30 +50,30 @@ const Hero: React.FC = () => {
               כל זה קורה בצ'אט האהוב של WhatsApp 📲 – בלי אפליקציות מיותרות.
             </p>
             
-            <div className="hero-anim opacity-0 -translate-y-4 transition-all duration-700 delay-500 flex flex-col sm:flex-row gap-5 justify-center items-center mb-12">
+            <div className="hero-anim opacity-0 -translate-y-4 transition-all duration-700 delay-500 flex flex-col sm:flex-row gap-6 justify-center items-center mb-12">
               <a 
                 href="#pilot" 
                 className={cn(
-                  "inline-flex items-center justify-center",
-                  "bg-[#25D366] hover:bg-[#1DD9E3]",
-                  "text-white font-bold py-4 px-8 rounded-full text-lg w-full sm:w-auto",
-                  "transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+                  buttonBaseStyles,
+                  "bg-[#1DD9E3] hover:bg-[#19c5ce]",
+                  "text-white",
+                  "shadow-lg hover:shadow-xl"
                 )}
               >
                 הצטרפות לפיילוט
-                <ArrowLeft className="mr-2 h-5 w-5" />
+                <ArrowLeft className="w-5 h-5" />
               </a>
               <a 
                 href="#workflow" 
                 className={cn(
-                  "inline-flex items-center justify-center",
+                  buttonBaseStyles,
                   "border-2 border-white text-white",
                   "hover:bg-white/10",
-                  "font-bold py-4 px-8 rounded-full text-lg w-full sm:w-auto",
-                  "transition-all duration-300 hover:-translate-y-1"
+                  "hover:shadow-white/20 hover:shadow-lg"
                 )}
               >
                 איך זה עובד?
+                <HelpCircle className="w-5 h-5" />
               </a>
             </div>
           </div>
