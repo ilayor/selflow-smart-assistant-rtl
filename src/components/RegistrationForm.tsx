@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { useToast } from "@/hooks/use-toast";
 import { CheckCircle, Send, Sparkles } from 'lucide-react';
@@ -8,7 +7,6 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
-
 interface FormData {
   full_name: string;
   age: string;
@@ -20,22 +18,34 @@ interface FormData {
 
 // Form validation schema
 const formSchema = z.object({
-  full_name: z.string().min(2, { message: "נא להזין שם מלא" }),
-  age: z.string().min(1, { message: "נא להזין גיל" }),
-  phone: z.string().min(9, { message: "נא להזין מספר טלפון תקין" }),
-  email: z.string().email({ message: "נא להזין כתובת אימייל תקינה" }),
-  business_description: z.string().min(10, { message: "נא לתאר את העסק בלפחות 10 תווים" }),
-  clients: z.string().min(1, { message: "נא להזין מספר לקוחות" }),
+  full_name: z.string().min(2, {
+    message: "נא להזין שם מלא"
+  }),
+  age: z.string().min(1, {
+    message: "נא להזין גיל"
+  }),
+  phone: z.string().min(9, {
+    message: "נא להזין מספר טלפון תקין"
+  }),
+  email: z.string().email({
+    message: "נא להזין כתובת אימייל תקינה"
+  }),
+  business_description: z.string().min(10, {
+    message: "נא לתאר את העסק בלפחות 10 תווים"
+  }),
+  clients: z.string().min(1, {
+    message: "נא להזין מספר לקוחות"
+  })
 });
 
 // Hidden webhook URL - not visible in client code when built
 const WEBHOOK_URL = "https://hook.eu2.make.com/tca9frrpz5lkdzflu8v24xh35vqris54";
-
 const RegistrationForm: React.FC = () => {
-  const { toast } = useToast();
+  const {
+    toast
+  } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
-
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -44,59 +54,53 @@ const RegistrationForm: React.FC = () => {
       phone: "",
       email: "",
       business_description: "",
-      clients: "",
-    },
+      clients: ""
+    }
   });
-
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     setIsSubmitting(true);
-    
     try {
       // Create URLSearchParams object for form-urlencoded format
       const params = new URLSearchParams();
-      
+
       // Add each form field to params
       Object.entries(values).forEach(([key, value]) => {
         params.append(key, value);
       });
-      
       console.log("Sending form-urlencoded payload:", params.toString());
-      
+
       // Send data to webhook with form-urlencoded content type
       await fetch(WEBHOOK_URL, {
         method: "POST",
         headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
+          "Content-Type": "application/x-www-form-urlencoded"
         },
-        mode: "no-cors", // Add this to handle CORS
-        body: params.toString(), // Convert params to string
+        mode: "no-cors",
+        // Add this to handle CORS
+        body: params.toString() // Convert params to string
       });
-      
+
       // Since we're using no-cors, we won't get a proper response status
       // Instead, we'll proceed as if successful
       setIsSuccess(true);
       toast({
         title: "הצלחה!",
         description: "הפרטים התקבלו בהצלחה, ניצור איתך קשר בקרוב",
-        variant: "default",
+        variant: "default"
       });
-      
       form.reset();
-      
     } catch (error) {
       console.error("Error submitting form:", error);
       toast({
         title: "שגיאה",
         description: "אירעה שגיאה בשליחת הטופס, אנא נסו שנית מאוחר יותר",
-        variant: "destructive",
+        variant: "destructive"
       });
       setIsSubmitting(false);
     }
   };
-
   if (isSuccess) {
-    return (
-      <section className="py-20 bg-gradient-to-b from-white to-selflow-yellow/10 animate-fade-in" id="thank-you">
+    return <section className="py-20 bg-gradient-to-b from-white to-selflow-yellow/10 animate-fade-in" id="thank-you">
         <div className="container mx-auto px-4 max-w-3xl">
           <div className="text-center">
             <div className="inline-block bg-gradient-to-br from-selflow-yellow to-selflow-green/20 p-6 rounded-full mb-6 shadow-lg transform transition-transform hover:scale-105">
@@ -125,10 +129,7 @@ const RegistrationForm: React.FC = () => {
               </div>
             </div>
             
-            <a 
-              href="/" 
-              className="cta-button inline-flex items-center justify-center bg-selflow-green hover:bg-selflow-darkGreen text-white font-bold py-4 px-8 rounded-full text-lg shadow-lg hover:shadow-selflow-green/50 transition-all"
-            >
+            <a href="/" className="cta-button inline-flex items-center justify-center bg-selflow-green hover:bg-selflow-darkGreen text-white font-bold py-4 px-8 rounded-full text-lg shadow-lg hover:shadow-selflow-green/50 transition-all">
               לחזרה לדף הראשי
             </a>
             
@@ -140,12 +141,9 @@ const RegistrationForm: React.FC = () => {
             </div>
           </div>
         </div>
-      </section>
-    );
+      </section>;
   }
-
-  return (
-    <section className="py-20 relative overflow-hidden bg-gradient-to-b from-white to-selflow-yellow/10" id="registration">
+  return <section className="py-20 relative overflow-hidden bg-gradient-to-b from-white to-selflow-yellow/10" id="registration">
       {/* Floating elements for design */}
       <div className="absolute top-20 right-10 w-32 h-32 bg-selflow-green/5 rounded-full blur-3xl"></div>
       <div className="absolute bottom-20 left-10 w-40 h-40 bg-selflow-turquoise/5 rounded-full blur-3xl"></div>
@@ -162,144 +160,77 @@ const RegistrationForm: React.FC = () => {
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="max-w-2xl mx-auto bg-white rounded-2xl shadow-xl p-8 border border-selflow-green/10">
             <div className="space-y-6">
-              <FormField
-                control={form.control}
-                name="full_name"
-                render={({ field }) => (
-                  <FormItem>
+              <FormField control={form.control} name="full_name" render={({
+              field
+            }) => <FormItem>
                     <FormLabel className="text-lg font-medium">שם מלא</FormLabel>
                     <FormControl>
-                      <Input 
-                        {...field} 
-                        className="p-3 text-base bg-gray-50 hover:bg-white focus:bg-white transition-colors rounded-xl" 
-                        placeholder="הזן את שמך המלא"
-                      />
+                      <Input {...field} className="p-3 text-base bg-gray-50 hover:bg-white focus:bg-white transition-colors rounded-xl" placeholder="הזן את שמך המלא" />
                     </FormControl>
                     <FormMessage />
-                  </FormItem>
-                )}
-              />
+                  </FormItem>} />
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <FormField
-                  control={form.control}
-                  name="age"
-                  render={({ field }) => (
-                    <FormItem>
+                <FormField control={form.control} name="age" render={({
+                field
+              }) => <FormItem>
                       <FormLabel className="text-lg font-medium">גיל</FormLabel>
                       <FormControl>
-                        <Input 
-                          {...field} 
-                          type="number" 
-                          min="17"
-                          className="p-3 text-base bg-gray-50 hover:bg-white focus:bg-white transition-colors rounded-xl" 
-                          placeholder="הזן את גילך"
-                        />
+                        <Input {...field} type="number" min="17" className="p-3 text-base bg-gray-50 hover:bg-white focus:bg-white transition-colors rounded-xl" placeholder="הזן את גילך" />
                       </FormControl>
                       <FormMessage />
-                    </FormItem>
-                  )}
-                />
+                    </FormItem>} />
                 
-                <FormField
-                  control={form.control}
-                  name="phone"
-                  render={({ field }) => (
-                    <FormItem>
+                <FormField control={form.control} name="phone" render={({
+                field
+              }) => <FormItem>
                       <FormLabel className="text-lg font-medium">טלפון</FormLabel>
                       <FormControl>
-                        <Input 
-                          {...field} 
-                          type="tel" 
-                          className="p-3 text-base bg-gray-50 hover:bg-white focus:bg-white transition-colors rounded-xl" 
-                          placeholder="050-1234567"
-                        />
+                        <Input {...field} type="tel" className="p-3 text-base bg-gray-50 hover:bg-white focus:bg-white transition-colors rounded-xl" placeholder="050-1234567" />
                       </FormControl>
                       <FormMessage />
-                    </FormItem>
-                  )}
-                />
+                    </FormItem>} />
               </div>
               
-              <FormField
-                control={form.control}
-                name="email"
-                render={({ field }) => (
-                  <FormItem>
+              <FormField control={form.control} name="email" render={({
+              field
+            }) => <FormItem>
                     <FormLabel className="text-lg font-medium">אימייל</FormLabel>
                     <FormControl>
-                      <Input 
-                        {...field} 
-                        type="email" 
-                        className="p-3 text-base bg-gray-50 hover:bg-white focus:bg-white transition-colors rounded-xl" 
-                        placeholder="your.email@example.com"
-                      />
+                      <Input {...field} type="email" className="p-3 text-base bg-gray-50 hover:bg-white focus:bg-white transition-colors rounded-xl" placeholder="your.email@example.com" />
                     </FormControl>
                     <FormMessage />
-                  </FormItem>
-                )}
-              />
+                  </FormItem>} />
               
-              <FormField
-                control={form.control}
-                name="business_description"
-                render={({ field }) => (
-                  <FormItem>
+              <FormField control={form.control} name="business_description" render={({
+              field
+            }) => <FormItem>
                     <FormLabel className="text-lg font-medium">תיאור העסק</FormLabel>
                     <FormControl>
-                      <Textarea 
-                        {...field} 
-                        className="p-3 text-base bg-gray-50 hover:bg-white focus:bg-white transition-colors rounded-xl min-h-[120px]" 
-                        placeholder="ספר/י לנו קצת על העסק שלך (תחום, ותק, סוגי שירותים)"
-                      />
+                      <Textarea {...field} className="p-3 text-base bg-gray-50 hover:bg-white focus:bg-white transition-colors rounded-xl min-h-[120px]" placeholder="ספר/י לנו קצת על העסק שלך (תחום, ותק, סוגי שירותים)" />
                     </FormControl>
                     <FormMessage />
-                  </FormItem>
-                )}
-              />
+                  </FormItem>} />
               
-              <FormField
-                control={form.control}
-                name="clients"
-                render={({ field }) => (
-                  <FormItem>
+              <FormField control={form.control} name="clients" render={({
+              field
+            }) => <FormItem>
                     <FormLabel className="text-lg font-medium">מספר לקוחות (בחודש)</FormLabel>
                     <FormControl>
-                      <Input 
-                        {...field} 
-                        type="number" 
-                        min="0"
-                        className="p-3 text-base bg-gray-50 hover:bg-white focus:bg-white transition-colors rounded-xl" 
-                        placeholder="הזן מספר לקוחות חודשי"
-                      />
+                      <Input {...field} type="number" min="0" className="p-3 text-base bg-gray-50 hover:bg-white focus:bg-white transition-colors rounded-xl" placeholder="הזן מספר לקוחות חודשי" />
                     </FormControl>
                     <FormMessage />
-                  </FormItem>
-                )}
-              />
+                  </FormItem>} />
               
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className="cta-button w-full flex items-center justify-center bg-selflow-green hover:bg-selflow-darkGreen text-white font-bold py-4 px-6 rounded-xl text-xl gap-2 shadow-lg hover:shadow-selflow-green/50 transition-all mt-6"
-              >
-                {isSubmitting ? (
-                  <>שולח... <div className="animate-spin h-5 w-5 border-2 border-white rounded-full border-t-transparent"></div></>
-                ) : (
-                  <>להצטרפות לפיילוט <Send className="h-5 w-5" /></>
-                )}
+              <button type="submit" disabled={isSubmitting} className="cta-button w-full flex items-center justify-center bg-selflow-green hover:bg-selflow-darkGreen text-white font-bold py-4 px-6 rounded-xl text-xl gap-2 shadow-lg hover:shadow-selflow-green/50 transition-all mt-6">
+                {isSubmitting ? <>שולח... <div className="animate-spin h-5 w-5 border-2 border-white rounded-full border-t-transparent"></div></> : <>להצטרפות לפיילוט <Send className="h-5 w-5" /></>}
               </button>
               
-              <p className="text-center mt-2 text-selflow-darkGray text-sm">
-                הפרטים שלך בטוחים אצלנו. לא נשתף אותם עם גורמים שלישיים.
-              </p>
+              <p className="text-center mt-2 text-selflow-darkGray text-sm">🔒 אנו מקפידים על אבטחת מידע גבוהה ומבצעים את כל הפעולות הנדרשות לשמירה על פרטיות המשתמש בהתאם לחוק.</p>
             </div>
           </form>
         </Form>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default RegistrationForm;
-
