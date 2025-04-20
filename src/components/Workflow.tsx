@@ -42,7 +42,7 @@ const Workflow: React.FC = () => {
     {
       icon: <MessageSquare className={`${isMobile ? 'h-6 w-6' : 'h-8 w-8'}`} />,
       title: "קבלת הודעות",
-      description: "לקוחות שולחים הודעות דרך WhatsApp - הפלטפורמה המוכרת להם"
+      description: "שליחת הודעה לעוזר האישי בצ'אט הוואצאפ"
     },
     {
       icon: <Brain className={`${isMobile ? 'h-6 w-6' : 'h-8 w-8'}`} />,
@@ -52,7 +52,7 @@ const Workflow: React.FC = () => {
     {
       icon: <RefreshCw className={`${isMobile ? 'h-6 w-6' : 'h-8 w-8'}`} />,
       title: "פעולה אוטומטית",
-      description: "תיאום תורים, ניהול הכנסות הוצאות, הכנסת תזכורות ותורים ליומן"
+      description: "תיאום תורים, ניהול הכנסות הוצאות,ניהול מלאי, הכנסת תזכורות ותורים ליומן"
     },
     {
       icon: <FileText className={`${isMobile ? 'h-6 w-6' : 'h-8 w-8'}`} />,
