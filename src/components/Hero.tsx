@@ -50,6 +50,8 @@ const Hero: React.FC = () => {
             <p className="hero-anim opacity-0 -translate-y-4 transition-all duration-700 delay-300 text-xl md:text-2xl text-white mb-6 max-w-2xl mx-auto font-medium">
               נהל את העסק שלך בצ'אט אחד חכם.
               <br />
+              Selflow הוא עוזר אישי חכם בצ'אט, שמנהל עבורך את ההכנסות, ההוצאות, תורים, משימות ותזכורות .
+              <br />
               כל זה קורה בצ'אט האהוב של WhatsApp 📲 – בלי אפליקציות מיותרות.
             </p>
 
