@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import { ArrowLeft } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
@@ -43,13 +42,13 @@ const Hero: React.FC = () => {
               כל זה קורה בצ'אט האהוב של WhatsApp 📲 – בלי אפליקציות מיותרות.
             </p>
             
-            <div className="hero-anim opacity-0 -translate-y-4 transition-all duration-700 delay-500 flex flex-col sm:flex-row gap-5 justify-center mb-12">
+            <div className="hero-anim opacity-0 -translate-y-4 transition-all duration-700 delay-500 flex flex-col sm:flex-row gap-5 justify-center items-center mb-12">
               <a 
                 href="#pilot" 
                 className={cn(
                   "inline-flex items-center justify-center",
-                  "bg-[#1DD9E3] hover:bg-[#19c5ce]",
-                  "text-white font-bold py-4 px-8 rounded-full text-lg",
+                  "bg-[#25D366] hover:bg-[#1DD9E3]",
+                  "text-white font-bold py-4 px-8 rounded-full text-lg w-full sm:w-auto",
                   "transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
                 )}
               >
@@ -62,7 +61,7 @@ const Hero: React.FC = () => {
                   "inline-flex items-center justify-center",
                   "border-2 border-white text-white",
                   "hover:bg-white/10",
-                  "font-bold py-4 px-8 rounded-full text-lg",
+                  "font-bold py-4 px-8 rounded-full text-lg w-full sm:w-auto",
                   "transition-all duration-300 hover:-translate-y-1"
                 )}
               >
@@ -74,10 +73,7 @@ const Hero: React.FC = () => {
           {/* Image/Logo */}
           <div className="hero-anim opacity-0 -translate-y-4 transition-all duration-700 delay-700 w-full md:w-2/5 flex justify-center">
             <div className="relative w-64 h-64 md:w-96 md:h-96 flex items-center justify-center">
-              {/* Background blur circles */}
               <div className="absolute w-full h-full bg-white/20 rounded-full blur-xl"></div>
-              
-              {/* Logo */}
               <img 
                 src="/lovable-uploads/selflow-icon-transparent.png"
                 alt="Selflow Logo"

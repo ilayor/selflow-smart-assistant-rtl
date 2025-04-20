@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 
@@ -28,14 +29,13 @@ const Header: React.FC = () => {
     >
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center">
-          {/* Full Selflow Logo */}
+          {/* Updated logo */}
           <div className="text-3xl font-bold">
             <a href="/" className="inline-block">
               <img
-                src="/lovable-uploads/selflow-banner.png"
-                alt="Selflow"
+                src="/lovable-uploads/24b0dcfa-72ee-47d4-8483-9dc536178a02.png"
+                alt="Selflow - WhatsApp Smart Assistant"
                 className="h-12 object-contain"
-                style={{ backgroundColor: 'transparent' }}
               />
             </a>
           </div>
