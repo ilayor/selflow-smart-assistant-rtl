@@ -10,7 +10,7 @@ const Header: React.FC = () => {
   };
 
   const navLinkClass = cn(
-    "relative text-white font-bold hover:text-selflow-turquoise transition-all duration-300",
+    "relative text-white font-bold text-sm md:text-base hover:text-white transition-all duration-300",
     "after:content-[''] after:absolute after:w-full after:h-0.5 after:bg-white",
     "after:bottom-[-4px] after:right-0 after:scale-x-0 after:origin-right",
     "after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-left"
@@ -18,26 +18,26 @@ const Header: React.FC = () => {
 
   const ctaButtonClass = cn(
     "bg-[#1DD9E3] hover:bg-[#25D366] text-white",
-    "px-6 py-2 rounded-full transition-all duration-300",
+    "px-5 py-2 rounded-full transition-all duration-300",
     "shadow-md hover:shadow-lg transform hover:-translate-y-0.5",
-    "font-bold text-base"
+    "font-bold text-sm md:text-base"
   );
 
   return (
-    <header className="fixed w-full z-50 py-2 bg-gradient-to-br from-[#A8E6CF] to-[#25D366]">
+    <header className="fixed w-full z-50 py-1 md:py-2 bg-gradient-to-br from-[#A8E6CF] to-[#25D366]">
       <div className="container mx-auto px-4">
-        <div className="flex justify-between items-center">
+        <div className="flex justify-between items-center gap-4">
           <div className="text-3xl font-bold order-1">
             <a href="/" className="inline-block">
               <img
                 src="/lovable-uploads/24b0dcfa-72ee-47d4-8483-9dc536178a02.png"
                 alt="Selflow - WhatsApp Smart Assistant"
-                className="h-16 object-contain"
+                className="h-24 object-contain"
               />
             </a>
           </div>
 
-          <nav className="hidden md:flex space-x-8 justify-end items-center order-2 mr-4">
+          <nav className="hidden md:flex items-center gap-8 order-2">
             <a href="#features" className={navLinkClass}>היתרונות</a>
             <a href="#workflow" className={navLinkClass}>איך זה עובד</a>
             <a href="#about" className={navLinkClass}>מי אנחנו</a>
@@ -60,21 +60,21 @@ const Header: React.FC = () => {
             <nav className="flex flex-col space-y-4 px-4">
               <a 
                 href="#features" 
-                className="text-white hover:text-selflow-turquoise transition-colors py-2 font-bold"
+                className="text-white hover:text-white transition-colors py-2 font-bold"
                 onClick={() => setIsMenuOpen(false)}
               >
                 היתרונות
               </a>
               <a 
                 href="#workflow" 
-                className="text-white hover:text-selflow-turquoise transition-colors py-2 font-bold"
+                className="text-white hover:text-white transition-colors py-2 font-bold"
                 onClick={() => setIsMenuOpen(false)}
               >
                 איך זה עובד
               </a>
               <a 
                 href="#about" 
-                className="text-white hover:text-selflow-turquoise transition-colors py-2 font-bold"
+                className="text-white hover:text-white transition-colors py-2 font-bold"
                 onClick={() => setIsMenuOpen(false)}
               >
                 מי אנחנו
@@ -95,4 +95,3 @@ const Header: React.FC = () => {
 };
 
 export default Header;
-
