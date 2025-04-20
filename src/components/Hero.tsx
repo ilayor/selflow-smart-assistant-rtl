@@ -42,7 +42,7 @@ const Hero: React.FC = () => {
               יש לך עסק עצמאי?
               <br />
               רוצה לקחת אותו לשלב הבא?
-                <br /> <span className="text-white">SELFLOW</span>,
+              <br /> <span className="text-white">SELFLOW</span>,
               <br />
               העוזר האישי החדש של העסק שלך 💬
             </h1>
@@ -50,14 +50,13 @@ const Hero: React.FC = () => {
             <p className="hero-anim opacity-0 -translate-y-4 transition-all duration-700 delay-300 text-xl md:text-2xl text-white mb-6 max-w-2xl mx-auto font-medium">
               נהל את העסק שלך בצ'אט אחד חכם.
               <br />
-              Selflow הוא עוזר אישי חכם בצ'אט, שמנהל עבורך את ההכנסות, ההוצאות, תורים, משימות ותזכורות .
+              Selflow הוא עוזר אישי חכם בצ'אט, שמנהל עבורך את ההכנסות, ההוצאות, תורים, משימות ותזכורות.
               <br />
               כל זה קורה בצ'אט האהוב של WhatsApp 📲 – בלי אפליקציות מיותרות.
             </p>
 
             {/* כפתורים */}
-            <div className="hero-anim opacity-0 -translate-y-4 transition-all duration-700 delay-500 flex flex-col sm:flex-row gap-6 justify-center items-center mb-12">
-              {/* כפתור תכלת מלא */}
+            <div className="hero-anim opacity-0 -translate-y-4 transition-all duration-700 delay-500 flex flex-col sm:flex-row gap-6 justify-center items-center mb-6">
               <a 
                 href="#pilot" 
                 className={cn(
@@ -69,7 +68,6 @@ const Hero: React.FC = () => {
                 <ArrowLeft className="w-5 h-5" />
               </a>
 
-              {/* כפתור outline לבן */}
               <a 
                 href="#workflow" 
                 className={cn(
@@ -81,6 +79,13 @@ const Hero: React.FC = () => {
                 איך זה עובד?
                 <HelpCircle className="w-5 h-5" />
               </a>
+            </div>
+
+            {/* אבטחת מידע */}
+            <div className="hero-anim opacity-0 -translate-y-4 transition-all duration-700 delay-700 flex justify-center">
+              <div className="bg-white/20 backdrop-blur-sm text-white text-sm rounded-xl px-6 py-3 max-w-md text-center shadow-md border border-white/30">
+                🔒 אנו מקפידים על אבטחת מידע גבוהה ומבצעים את כל הפעולות הנדרשות לשמירה על פרטיות המשתמש בהתאם לחוק.
+              </div>
             </div>
           </div>
 
@@ -103,4 +108,3 @@ const Hero: React.FC = () => {
 };
 
 export default Hero;
-
