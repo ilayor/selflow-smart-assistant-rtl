@@ -21,7 +21,9 @@ const Hero: React.FC = () => {
     "inline-flex items-center justify-center gap-2",
     "font-bold py-4 px-8 rounded-full text-lg",
     "w-full sm:w-[200px]",
-    "transition-all duration-300 hover:-translate-y-1",
+    "transition-all duration-300",
+    "shadow-md hover:shadow-xl",
+    "transform hover:-translate-y-1"
   );
 
   return (
@@ -55,9 +57,7 @@ const Hero: React.FC = () => {
                 href="#pilot" 
                 className={cn(
                   buttonBaseStyles,
-                  "bg-[#1DD9E3] hover:bg-[#19c5ce]",
-                  "text-white",
-                  "shadow-lg hover:shadow-xl"
+                  "bg-[#1DD9E3] hover:bg-[#25D366] text-white"
                 )}
               >
                 הצטרפות לפיילוט
@@ -68,8 +68,7 @@ const Hero: React.FC = () => {
                 className={cn(
                   buttonBaseStyles,
                   "border-2 border-white text-white",
-                  "hover:bg-white/10",
-                  "hover:shadow-white/20 hover:shadow-lg"
+                  "hover:bg-[#25D366] hover:border-[#25D366]"
                 )}
               >
                 איך זה עובד?
