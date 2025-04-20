@@ -1,6 +1,5 @@
-
 import React from 'react';
-import { Heart, Mail, Phone } from 'lucide-react';
+import { Heart, Mail, Phone, ShieldCheck } from 'lucide-react';
 
 const Footer: React.FC = () => {
   const scrollToTop = () => {
@@ -15,15 +14,11 @@ const Footer: React.FC = () => {
           {/* לוגו + תיאור */}
           <div className="w-full md:w-1/3 flex flex-col items-start">
             <img 
-              src="/lovable-uploads/selflow-banner.png" 
+              src="/lovable-uploads/24b0dcfa-72ee-47d4-8483-9dc536178a02.png" 
               alt="Selflow Logo"
-              className="h-10 mb-3"
+              className="h-12 mb-3"
             />
             <p className="text-lg">נבנה באהבה ע"י פרוסיילור סיסטמס, 2025</p>
-            <div className="flex items-center mt-2">
-              <Heart className="h-5 w-5 text-selflow-green mr-1" />
-              <p>נבנה בישראל באהבה</p>
-            </div>
           </div>
 
           {/* ניווט מהיר */}
@@ -59,8 +54,12 @@ const Footer: React.FC = () => {
         </div>
 
         {/* תחתית */}
-        <div className="border-t border-gray-700 mt-10 pt-6 text-center">
+        <div className="border-t border-gray-700 mt-10 pt-6 text-center space-y-2">
           <p>&copy; {new Date().getFullYear()} Selflow - כל הזכויות שמורות</p>
+          <div className="flex justify-center items-center text-sm text-gray-300">
+            <ShieldCheck className="h-4 w-4 ml-2 text-selflow-green" />
+            המידע שלך מאובטח. Selflow פועלת לפי תקני פרטיות מחמירים.
+          </div>
         </div>
       </div>
     </footer>
@@ -68,3 +67,4 @@ const Footer: React.FC = () => {
 };
 
 export default Footer;
+
