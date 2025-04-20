@@ -36,7 +36,6 @@ const Hero: React.FC = () => {
       
       <div className="container mx-auto px-6 z-10 relative">
         <div className="flex flex-col md:flex-row items-center justify-between gap-12 md:gap-16">
-          {/* Text content */}
           <div className="w-full md:w-3/5 text-center">
             <h1 className="hero-anim opacity-0 -translate-y-4 transition-all duration-700 text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight text-shadow-lg">
               בעל עסק עצמאי?
@@ -77,7 +76,6 @@ const Hero: React.FC = () => {
             </div>
           </div>
           
-          {/* Image/Logo */}
           <div className="hero-anim opacity-0 -translate-y-4 transition-all duration-700 delay-700 w-full md:w-2/5 flex justify-center">
             <div className="relative w-64 h-64 md:w-96 md:h-96 flex items-center justify-center">
               <div className="absolute w-full h-full bg-white/20 rounded-full blur-xl"></div>
