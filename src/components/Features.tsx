@@ -106,6 +106,17 @@ const Features: React.FC = () => {
             />
             <h3 className="text-xl font-bold text-center">את אופה באהבה – ואנחנו נטפל בהזמנות 🍰</h3>
           </div>
+          {/* כל עסק אחר */}
+<div className="bg-white p-6 rounded-xl shadow-lg">
+  <img
+    src="https://selflow-smart-assistant-rtl.lovable.app/lovable-uploads/A_photograph_of_a_young_Caucasian_man_with_light_s.png"
+    alt="בעל עסק מנופף לשלום בכניסה לחנות"
+    className="rounded-lg object-cover w-full h-64 mb-4"
+  />
+  <h3 className="text-xl font-bold text-center">
+בעל עסק אחר? - נתאים את SelFlow במיוחד עבורך 🙌
+  </h3>
+</div>
         </div>
 
         {/* הדמיה של שיחה בוואטסאפ */}
