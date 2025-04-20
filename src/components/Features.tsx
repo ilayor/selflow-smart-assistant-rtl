@@ -46,7 +46,7 @@ const Features: React.FC = () => {
               alt="לק ג'ל"
               className="rounded-lg object-cover w-full h-64 mb-4"
             />
-            <h3 className="text-xl font-bold text-center">הציפורניים שלך – השליחות שלנו 💅</h3>
+            <h3 className="text-xl font-bold text-center">הציפורניים שלך – את הסדר השאירי לנו 💅</h3>
           </div>
 
           {/* ספרים */}
