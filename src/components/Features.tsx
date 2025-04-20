@@ -106,19 +106,21 @@ const Features: React.FC = () => {
             />
             <h3 className="text-xl font-bold text-center">את אופה באהבה – ואנחנו נטפל בהזמנות 🍰</h3>
           </div>
-        {/* כל עסק אחר */}
-<div className="flex justify-center col-span-1 sm:col-span-2">
-  <div className="bg-white p-6 rounded-xl shadow-lg max-w-md w-full">
-    <img
-      src="https://selflow-smart-assistant-rtl.lovable.app/lovable-uploads/A_photograph_of_a_young_Caucasian_man_with_light_s.png"
-      alt="בעל עסק מנופף לשלום בכניסה לחנות"
-      className="rounded-lg object-cover w-full h-64 mb-4"
-    />
-    <h3 className="text-xl font-bold text-center">
-      בעל עסק אחר? <br /> נתאים את Selflow במיוחד עבורך 🙌
-    </h3>
-  </div>
-</div>
+
+          {/* כל עסק אחר - מיושר למרכז */}
+          <div className="sm:col-span-2 flex justify-center">
+            <div className="bg-white p-6 rounded-xl shadow-lg max-w-md w-full">
+              <img
+                src="https://selflow-smart-assistant-rtl.lovable.app/lovable-uploads/A_photograph_of_a_young_Caucasian_man_with_light_s.png"
+                alt="בעל עסק מנופף לשלום בכניסה לחנות"
+                className="rounded-lg object-cover w-full h-64 mb-4"
+              />
+              <h3 className="text-xl font-bold text-center">
+                בעל עסק אחר? <br /> נתאים את Selflow במיוחד עבורך 🙌
+              </h3>
+            </div>
+          </div>
+        </div>
 
         {/* הדמיה של שיחה בוואטסאפ */}
         <div className="mt-16 text-center">
@@ -137,4 +139,5 @@ const Features: React.FC = () => {
 };
 
 export default Features;
+
 
