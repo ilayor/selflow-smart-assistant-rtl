@@ -52,49 +52,33 @@ const Features: React.FC = () => {
           </div>
         </div>
         
-       {/* Target audience images */}
-<div className="mt-16 grid grid-cols-1 sm:grid-cols-2 gap-8">
-  {/* לק ג'ל */}
-  <div className="bg-white p-6 rounded-xl shadow-lg">
-    <img
-      src="/lovable-uploads/7581958b-339a-4fc3-8e1b-1bf07ea55575.png"
-      alt="לק ג'ל"
-      className="rounded-lg object-cover w-full h-64 mb-4"
-    />
-    <h3 className="text-xl font-bold text-center">הציפורניים של הלקוחות שלך בעדיפות ראשונה</h3>
-  </div>
-
-  {/* ספרים */}
-  <div className="bg-white p-6 rounded-xl shadow-lg">
-    <img
-      src="https://images.pexels.com/photos/3992874/pexels-photo-3992874.jpeg"
-      alt="מספרה"
-      className="rounded-lg object-cover w-full h-64 mb-4"
-    />
-    <h3 className="text-xl font-bold text-center">אתה רק צריך לגזור – אנחנו נדאג לשאר ✂️</h3>
-  </div>
-
-  {/* מאפרת */}
-  <div className="bg-white p-6 rounded-xl shadow-lg">
-    <img
-      src="https://images.pexels.com/photos/7587530/pexels-photo-7587530.jpeg"
-      alt="מאפרת"
-      className="rounded-lg object-cover w-full h-64 mb-4"
-    />
-    <h3 className="text-xl font-bold text-center">את דואגת לטאצ' – אנחנו לדוחות 💄</h3>
-  </div>
-
-  {/* אופה ביתית */}
-  <div className="bg-white p-6 rounded-xl shadow-lg">
-    <img
-      src="https://images.unsplash.com/photo-1606857521015-7c6ebacee52a?auto=format&fit=crop&w=800&q=80"
-      alt="אופה ביתית"
-      className="rounded-lg object-cover w-full h-64 mb-4"
-    />
-    <h3 className="text-xl font-bold text-center">את אופה באהבה – ואנחנו נטפל בהזמנות 🍰</h3>
-  </div>
-</div>
-
+        {/* Target audience images */}
+        <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="bg-white p-6 rounded-xl shadow-lg">
+            <div className="aspect-w-16 aspect-h-9 mb-4">
+              <img src="https://images.pexels.com/photos/3992874/pexels-photo-3992874.jpeg" alt="ספר - קהל היעד" className="rounded-lg object-cover w-full h-64" onError={e => {
+              e.currentTarget.src = "https://via.placeholder.com/600x400?text=Hair+Salon";
+            }} />
+            </div>
+            <h3 className="text-xl font-bold text-center">אתה רק צריך לגזור לא יותר מזה</h3>
+          </div>
+          
+          <div className="bg-white p-6 rounded-xl shadow-lg">
+            <div className="aspect-w-16 aspect-h-9 mb-4">
+              <img src="https://images.pexels.com/photos/939836/pexels-photo-939836.jpeg" alt="לק ג'ל - קהל היעד" className="rounded-lg object-cover w-full h-64" onError={e => {
+              e.currentTarget.src = "https://via.placeholder.com/600x400?text=Nail+Salon";
+            }} />
+            </div>
+            <h3 className="text-xl font-bold text-center">הציפורניים של הלקוחות שלך בעדיפות ראשונה</h3>
+          </div>
+        </div>
+        
+        <div className="mt-16 text-center">
+          <div className="max-w-4xl mx-auto">
+            <img src="/lovable-uploads/7581958b-339a-4fc3-8e1b-1bf07ea55575.png" alt="שיחת WhatsApp עם Selflow" className="rounded-lg shadow-xl mb-4 mx-auto" />
+            <p className="text-lg mt-4">שיחה יותר יעילה מזו לא תמצאו 😊</p>
+          </div>
+        </div>
       </div>
     </section>;
 };
