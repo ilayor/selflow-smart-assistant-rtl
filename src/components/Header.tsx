@@ -34,7 +34,11 @@ const Header: React.FC = () => {
          <div className="text-3xl font-bold">
  <a href="/" className="inline-block">
   <img
-    src="https://selflow-smart-assistant-rtl.lovable.app/lovable-uploads/logo-small.png"
+  src="/selflow-icon-transparent.png"
+  alt="Selflow Logo"
+  className="h-12 w-12 object-contain"
+/>
+
     alt="Selflow Logo"
     className="h-16 object-contain"
     style={{ backgroundColor: 'transparent' }}
