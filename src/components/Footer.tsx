@@ -45,12 +45,9 @@ const Footer: React.FC = () => {
                   055-6629293 - סהר
                 </a>
               </li>
-            </ul>
-          </div>
-           </li>
               <li className="flex items-center">
                 <Phone className="h-5 w-5 ml-2 text-selflow-turquoise" />
-                <a href="tel:0556629293" className="hover:text-selflow-turquoise transition-colors">
+                <a href="tel:0558837762" className="hover:text-selflow-turquoise transition-colors">
                   055-8837762 - עילאי
                 </a>
               </li>
@@ -71,3 +68,4 @@ const Footer: React.FC = () => {
 };
 
 export default Footer;
+
