@@ -58,7 +58,7 @@ const Hero: React.FC = () => {
             {/* כפתורים */}
             <div className="hero-anim opacity-0 -translate-y-4 transition-all duration-700 delay-500 flex flex-col sm:flex-row gap-6 justify-center items-center mb-6">
               <a 
-                href="#pilot" 
+                href="#contact" 
                 className={cn(
                   buttonBaseStyles,
                   "bg-[#1DD9E3] hover:bg-[#25D366] text-white"
