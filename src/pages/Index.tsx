@@ -5,7 +5,7 @@ import Hero from '@/components/Hero';
 import Features from '@/components/Features';
 import Workflow from '@/components/Workflow';
 import AboutUs from '@/components/AboutUs';
-import Contact from '@/components/contact';
+import ContactForm from '@/components/contact';
 import Footer from '@/components/Footer';
 
 const Index = () => {
@@ -16,7 +16,7 @@ const Index = () => {
       <Features />
       <Workflow />
       <AboutUs />
-      <Contact />
+      <ContactForm />
       <Footer />
     </div>
   );
