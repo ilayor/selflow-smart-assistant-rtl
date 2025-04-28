@@ -106,8 +106,8 @@ const RegistrationForm: React.FC = () => {
             <div className="inline-block bg-gradient-to-br from-selflow-yellow to-selflow-green/20 p-6 rounded-full mb-6 shadow-lg transform transition-transform hover:scale-105">
               <CheckCircle className="h-16 w-16 text-selflow-green" />
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-selflow-darkGreen">תודה על ההרשמה! 🎉</h2>
-            <p className="text-2xl mb-8">הפרטים שלך התקבלו בהצלחה. ניצור איתך קשר בקרוב כדי להתחיל את התהליך החכם שלך.</p>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-selflow-darkGreen">🎉</h2>
+            <p className="text-2xl mb-8">הפרטים שלך התקבלו בהצלחה. ניצור איתך קשר בקרוב .</p>
             
             <div className="bg-white rounded-2xl shadow-xl p-8 mb-10 transform transition-all hover:shadow-2xl border border-selflow-green/10">
               <p className="text-xl mb-4">
@@ -153,8 +153,8 @@ const RegistrationForm: React.FC = () => {
           <div className="inline-block bg-selflow-yellow p-3 rounded-full mb-4">
             <Sparkles className="h-6 w-6 text-selflow-darkGreen" />
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">הרשמה לפיילוט</h2>
-          <p className="text-lg text-gray-600">מלאו את הפרטים ונחזור אליכם תוך 24-48 שעות</p>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">צור קשר</h2>
+          <p className="text-lg text-gray-600"></p>מלאו את הפרטים ונחזור אליכם בהקדם</p>
         </div>
         
         <Form {...form}>
