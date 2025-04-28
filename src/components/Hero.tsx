@@ -64,7 +64,7 @@ const Hero: React.FC = () => {
                   "bg-[#1DD9E3] hover:bg-[#25D366] text-white"
                 )}
               >
-                הצטרפות לפיילוט
+               צור קשר
                 <ArrowLeft className="w-5 h-5" />
               </a>
 
