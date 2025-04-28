@@ -5,8 +5,7 @@ import Hero from '@/components/Hero';
 import Features from '@/components/Features';
 import Workflow from '@/components/Workflow';
 import AboutUs from '@/components/AboutUs';
-import PilotInvitation from '@/components/PilotInvitation';
-import RegistrationForm from '@/components/RegistrationForm';
+import Contact from '@/components/contact';
 import Footer from '@/components/Footer';
 
 const Index = () => {
@@ -17,8 +16,7 @@ const Index = () => {
       <Features />
       <Workflow />
       <AboutUs />
-      <PilotInvitation />
-      <RegistrationForm />
+      <Contact />
       <Footer />
     </div>
   );

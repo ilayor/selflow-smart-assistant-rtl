@@ -80,11 +80,11 @@ const Header: React.FC = () => {
                 מי אנחנו
               </a>
               <a 
-                href="#pilot" 
+                href="#contact" 
                 className={cn(ctaButtonClass, "text-center")}
                 onClick={() => setIsMenuOpen(false)}
               >
-                הצטרפות לפיילוט
+                צור קשר
               </a>
             </nav>
           </div>

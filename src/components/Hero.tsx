@@ -27,7 +27,6 @@ const Hero: React.FC = () => {
 
   return (
     <section className="relative min-h-screen pt-24 pb-16 overflow-hidden bg-gradient-to-br from-[#A8E6CF] to-[#25D366]">
-      {/* Decorative elements */}
       <div className="absolute top-0 left-0 w-full h-full opacity-10">
         <div className="absolute w-96 h-96 rounded-full bg-white/30 blur-3xl -top-20 -left-20"></div>
         <div className="absolute w-96 h-96 rounded-full bg-white/30 blur-3xl bottom-20 right-10"></div>
@@ -35,8 +34,6 @@ const Hero: React.FC = () => {
 
       <div className="container mx-auto px-6 z-10 relative">
         <div className="flex flex-col md:flex-row items-center justify-between gap-12 md:gap-16">
-          
-          {/* טקסט ותוכן */}
           <div className="w-full md:w-3/5 text-center">
             <h1 className="hero-anim opacity-0 -translate-y-4 transition-all duration-700 text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight text-shadow-lg">
               יש לך עסק עצמאי?
@@ -55,7 +52,6 @@ const Hero: React.FC = () => {
               כל זה קורה בצ'אט האהוב של WhatsApp 📲 – בלי אפליקציות מיותרות.
             </p>
 
-            {/* כפתורים */}
             <div className="hero-anim opacity-0 -translate-y-4 transition-all duration-700 delay-500 flex flex-col sm:flex-row gap-6 justify-center items-center mb-6">
               <a 
                 href="#contact" 
@@ -64,7 +60,7 @@ const Hero: React.FC = () => {
                   "bg-[#1DD9E3] hover:bg-[#25D366] text-white"
                 )}
               >
-               צור קשר
+                צור קשר
                 <ArrowLeft className="w-5 h-5" />
               </a>
 
@@ -81,7 +77,6 @@ const Hero: React.FC = () => {
               </a>
             </div>
 
-            {/* אבטחת מידע */}
             <div className="hero-anim opacity-0 -translate-y-4 transition-all duration-700 delay-700 flex justify-center">
               <div className="bg-white/20 backdrop-blur-sm text-white text-sm rounded-xl px-6 py-3 max-w-md text-center shadow-md border border-white/30">
                 🔒 אנו מקפידים על אבטחת מידע גבוהה ומבצעים את כל הפעולות הנדרשות לשמירה על פרטיות המשתמש בהתאם לחוק.
@@ -89,7 +84,6 @@ const Hero: React.FC = () => {
             </div>
           </div>
 
-          {/* תמונה */}
           <div className="hero-anim opacity-0 -translate-y-4 transition-all duration-700 delay-700 w-full md:w-2/5 flex justify-center">
             <div className="relative w-64 h-64 md:w-96 md:h-96 flex items-center justify-center">
               <div className="absolute w-full h-full bg-white/20 rounded-full blur-xl"></div>
@@ -100,7 +94,6 @@ const Hero: React.FC = () => {
               />
             </div>
           </div>
-
         </div>
       </div>
     </section>
