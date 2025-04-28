@@ -47,6 +47,15 @@ const Footer: React.FC = () => {
               </li>
             </ul>
           </div>
+           </li>
+              <li className="flex items-center">
+                <Phone className="h-5 w-5 ml-2 text-selflow-turquoise" />
+                <a href="tel:0556629293" className="hover:text-selflow-turquoise transition-colors">
+                  055-8837762 - עילאי
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
 
         <div className="border-t border-gray-700 mt-10 pt-6 text-center space-y-2">
