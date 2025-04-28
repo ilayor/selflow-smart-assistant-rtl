@@ -41,7 +41,7 @@ const Header: React.FC = () => {
             <a href="#features" className={navLinkClass}>היתרונות</a>
             <a href="#workflow" className={navLinkClass}>איך זה עובד</a>
             <a href="#about" className={navLinkClass}>מי אנחנו</a>
-            <a href="#pilot" className={ctaButtonClass}>
+            <a href="#contact" className={ctaButtonClass}>
               צור קשר
             </a>
           </nav>
