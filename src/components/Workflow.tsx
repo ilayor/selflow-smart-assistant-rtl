@@ -1,77 +1,93 @@
-import React from 'react';
-import { MessageSquare, Brain, RefreshCw, FileText, Clock } from 'lucide-react';
+import React from "react";
+import { PhoneCall, Code2, CheckCircle2, UploadCloud } from "lucide-react";
 
-const workflowSteps = [
+const timelineSteps = [
   {
-    icon: <MessageSquare className="h-6 w-6 md:h-8 md:w-8 text-white" />,
-    title: "קבלת הודעות",
-    description: "שליחת הודעה לעוזר האישי בוואטסאפ"
+    title: "שיחת אפיון",
+    icon: <PhoneCall className="w-8 h-8 text-white" />,
+    description: (
+      <>
+        בשלב הראשון נערוך <span className="font-bold text-[#25D366]">שיחת אפיון מעמיקה</span> (טלפון או זום), 
+        בה נבין את האתגרים והיעדים שלך, ננתח את תהליכי העבודה בעסק, 
+        נמפה שלבים חוזרים ומוקדים לשיפור, ונבנה יחד <span className="font-bold text-[#25D366]">תרשים אוטומציה</span> מותאם אישית 
+        שיביא לתוצאה אפקטיבית וקלילה.
+      </>
+    ),
+    color: "bg-[#25D366]",
   },
   {
-    icon: <Brain className="h-6 w-6 md:h-8 md:w-8 text-white" />,
-    title: "ניתוח חכם",
-    description: "המערכת מבינה את תוכן ההודעה ומסווגת אותה לפי סוג הפנייה"
+    title: "פיתוח",
+    icon: <Code2 className="w-8 h-8 text-white" />,
+    description: (
+      <>
+        על סמך תהליך האפיון ניגש <span className="font-bold text-[#25D366]">לפיתוח האוטומציה בפועל</span>: 
+        כתיבת סקריפטים, בניית אינטגרציות בין מערכות (CRM, WhatsApp, Google וכו'), 
+        הקמת תשתית נתונים, הפעלת טריגרים חכמים, והגדרת כלים מותאמים לעסק שלך – 
+        הכל בשקיפות מלאה ותיעוד מלא.
+      </>
+    ),
+    color: "bg-[#A8E6CF]",
   },
   {
-    icon: <RefreshCw className="h-6 w-6 md:h-8 md:w-8 text-white" />,
-    title: "פעולה אוטומטית",
-    description: "ניהול הכנסות, הוצאות, מלאי, יומן ותיאומים – בלי להקליד"
+    title: "בדיקות ודיוקים",
+    icon: <CheckCircle2 className="w-8 h-8 text-white" />,
+    description: (
+      <>
+        לאחר הפיתוח נבצע <span className="font-bold text-[#25D366]">בדיקות קפדניות</span> לכל שלב באוטומציה, 
+        נבצע הדמיות (Sandbox) עם דאטה אמיתי, נתקן באגים, 
+        נוודא שכל התהליכים עובדים “מהרגע הראשון”, ונשדרג לפי פידבק – 
+        עד שכל רכיב יושב בול לפי צרכי העסק והמשתמשים.
+      </>
+    ),
+    color: "bg-[#25D366]",
   },
   {
-    icon: <FileText className="h-6 w-6 md:h-8 md:w-8 text-white" />,
-    title: "דוחות ותובנות",
-    description: "קבלת דוחות חכמים על הפעילות והביצועים שלך"
+    title: "הטמעה",
+    icon: <UploadCloud className="w-8 h-8 text-white" />,
+    description: (
+      <>
+        בשלב האחרון נבצע <span className="font-bold text-[#25D366]">הטמעה והדרכה</span>: 
+        נכין מסמכי עבודה ברורים, נדריך אותך ואת הצוות על המערכת, 
+        נטמיע Dashboard ניהול פשוט וברור, ניתן תמיכה ראשונית – 
+        ונוודא שהמערכת עובדת חלק ונותנת לך שקט ונחת.
+      </>
+    ),
+    color: "bg-[#A8E6CF]",
   },
-  {
-    icon: <Clock className="h-6 w-6 md:h-8 md:w-8 text-white" />,
-    title: "חיסכון בזמן",
-    description: "פחות עבודת ניירת, יותר זמן להתמקד בעסק ובלקוחות"
-  }
 ];
 
-const Workflow: React.FC = () => {
+const Timeline: React.FC = () => {
   return (
-    <section id="workflow" className="py-24 bg-white">
+    <section className="py-24 bg-white" dir="rtl">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">איך Selflow עובד?</h2>
-          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
-            עוזר אישי חכם, מבוסס בינה מלאכותית, שמקבל ממך הוראות ולוקח את העסק שלך קדימה.
-          </p>
-        </div>
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
+          איך נראה תהליך העבודה המשותף?
+        </h2>
+        <div className="relative max-w-2xl mx-auto">
+          {/* קו ציר זמן אנכי */}
+          <div className="absolute right-6 md:right-12 top-0 bottom-0 w-1 bg-[#25D366]/30 z-0 rounded-full" />
 
-        {/* Desktop Timeline */}
-        <div className="hidden md:flex justify-between relative max-w-6xl mx-auto">
-          {/* קו מחבר עליון */}
-          <div className="absolute top-10 left-0 right-0 h-1 bg-gray-200 z-0" />
-          
-          {workflowSteps.map((step, index) => (
-            <div key={index} className="relative z-10 flex flex-col items-center text-center w-1/5 px-2">
-              <div className="bg-selflow-green p-4 rounded-full shadow-lg mb-4">
-                {step.icon}
+          <div className="flex flex-col gap-16">
+            {timelineSteps.map((step, idx) => (
+              <div key={idx} className="relative z-10 flex flex-row-reverse items-start">
+                {/* אייקון עגול */}
+                <div className={`flex-shrink-0 ${step.color} p-4 rounded-full shadow-lg mr-4 md:mr-8`}>
+                  {step.icon}
+                </div>
+                {/* תוכן */}
+                <div className="bg-[#F6F6F6] p-6 rounded-xl shadow w-full">
+                  <h4 className="text-xl md:text-2xl font-bold mb-2 text-[#25D366]">{step.title}</h4>
+                  <p className="text-base md:text-lg text-gray-800 leading-relaxed">{step.description}</p>
+                </div>
               </div>
-              <h4 className="font-bold text-lg mb-2">{step.title}</h4>
-              <p className="text-sm text-gray-600">{step.description}</p>
-            </div>
-          ))}
-        </div>
-
-        {/* Mobile stacked cards */}
-        <div className="md:hidden flex flex-col gap-6 mt-4">
-          {workflowSteps.map((step, index) => (
-            <div key={index} className="flex flex-col items-center text-center bg-gray-50 p-6 rounded-xl shadow">
-              <div className="bg-selflow-green p-4 rounded-full shadow-md mb-4">
-                {step.icon}
-              </div>
-              <h4 className="font-bold text-lg mb-2">{step.title}</h4>
-              <p className="text-sm text-gray-600">{step.description}</p>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>
   );
 };
 
-export default Workflow;
+export default Timeline;
+
 
