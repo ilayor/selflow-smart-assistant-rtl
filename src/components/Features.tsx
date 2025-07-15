@@ -1,11 +1,10 @@
-import React from "react";
-import Image from "next/image";
 
-const HeroTextSection: React.FC = () => {
+import React from "react";
+
+const Features: React.FC = () => {
   return (
     <section className="w-full min-h-[60vh] bg-[#FDE4EE] flex flex-col justify-center py-16 px-4" dir="rtl">
       <div className="max-w-3xl mx-auto text-center flex flex-col items-center">
-
         <p className="text-2xl md:text-3xl font-medium mb-5 leading-relaxed text-gray-800">
           אם היו אומרים לך שיש מי <span className="font-bold text-[#B3125D]">שינהל עבורך תהליכים עסקיים</span>  
           בלי שתשכח אף שלב, <span className="font-bold text-[#B3125D]">מישהו נוסף שיחמם לך לידים ויגדיל לך הכנסה</span>,
@@ -26,18 +25,9 @@ const HeroTextSection: React.FC = () => {
         <p className="text-xl font-bold text-[#B3125D] mb-8">
           איך אתה שואל? את זה תשאיר לנו 😉
         </p>
-        {/* כפתור קריאה לפעולה – אם תרצה */}
-        {/* <a
-          href="#contact"
-          className="bg-white text-[#B3125D] border-2 border-[#B3125D] font-bold px-8 py-4 rounded-full shadow hover:bg-[#B3125D] hover:text-white transition-all duration-200 text-lg"
-        >
-          רוצה לשמוע איך זה עובד?
-        </a> */}
       </div>
     </section>
   );
 };
 
-export default HeroTextSection;
-
-
+export default Features;

@@ -1,3 +1,4 @@
+
 import React from "react";
 import { PhoneCall, Code2, CheckCircle2, UploadCloud } from "lucide-react";
 
@@ -35,7 +36,7 @@ const timelineSteps = [
       <>
         לאחר הפיתוח נבצע <span className="font-bold text-[#25D366]">בדיקות קפדניות</span> לכל שלב באוטומציה, 
         נבצע הדמיות (Sandbox) עם דאטה אמיתי, נתקן באגים, 
-        נוודא שכל התהליכים עובדים “מהרגע הראשון”, ונשדרג לפי פידבק – 
+        נוודא שכל התהליכים עובדים "מהרגע הראשון", ונשדרג לפי פידבק – 
         עד שכל רכיב יושב בול לפי צרכי העסק והמשתמשים.
       </>
     ),
@@ -56,7 +57,7 @@ const timelineSteps = [
   },
 ];
 
-const Timeline: React.FC = () => {
+const Workflow: React.FC = () => {
   return (
     <section className="py-24 bg-white" dir="rtl">
       <div className="container mx-auto px-4">
@@ -88,6 +89,4 @@ const Timeline: React.FC = () => {
   );
 };
 
-export default Timeline;
-
-
+export default Workflow;
