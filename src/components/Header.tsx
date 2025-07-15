@@ -1,5 +1,5 @@
+
 import React from 'react';
-import Image from 'next/image';
 import { cn } from '@/lib/utils';
 
 const navLinks = [
@@ -14,13 +14,12 @@ const Header: React.FC = () => {
       <div className="container mx-auto px-4 flex items-center justify-between">
         {/* Logo on the right */}
         <a href="/" className="flex items-center gap-2">
-          <Image
+          <img
             src="/lovable-uploads/24b0dcfa-72ee-47d4-8483-9dc536178a02.png"
             alt="Selflow - לוגו"
             width={55}
             height={55}
             className="h-12 w-auto object-contain"
-            priority
           />
         </a>
 

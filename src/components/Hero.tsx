@@ -1,5 +1,5 @@
+
 import React, { useEffect, useRef, useState } from "react";
-import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 const ROTATING_TEXTS = [
@@ -58,13 +58,12 @@ const Hero: React.FC = () => {
       </div>
       {/* תמונה שמאלית */}
       <div className="w-full md:w-1/2 flex justify-center items-center mt-8 md:mt-0 z-10">
-        <Image
+        <img
           src="/c803c1e0-53f4-44ba-ac7e-bd7602fa1ef1.png"
           alt="תמונה עסקית"
           width={440}
           height={560}
           className="rounded-2xl object-cover shadow-xl border-4 border-white/30"
-          priority
         />
       </div>
       {/* אפקט רקע דקורטיבי */}
@@ -77,4 +76,3 @@ const Hero: React.FC = () => {
 };
 
 export default Hero;
-
